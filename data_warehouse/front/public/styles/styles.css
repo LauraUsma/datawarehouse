@@ -1,0 +1,25 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.cardheader,
+.btn {
+  background-color: #1d72c2;
+  color: white;
+}
+
+.displaynone {
+  display: none;
+}
+
+.displayblock {
+  display: block;
+}
+/*# sourceMappingURL=styles.css.map */
