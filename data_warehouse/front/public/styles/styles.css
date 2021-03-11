@@ -22,4 +22,26 @@ body {
 .displayblock {
   display: block;
 }
+
+.titulo {
+  padding-top: 30px;
+  font-family: "Open sans bold", sans-serif;
+}
+
+.buscar {
+  background-color: white;
+  color: #1d72c2;
+}
+
+.btn-outline-secondary {
+  border-color: #bec5be;
+}
+
+.subirarchivo {
+  border-color: #1d72c2;
+}
+
+.desplegable {
+  margin-left: 650px;
+}
 /*# sourceMappingURL=styles.css.map */

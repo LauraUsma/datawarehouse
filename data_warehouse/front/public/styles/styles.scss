@@ -1,5 +1,6 @@
 $font1: 'Open Sans',
 sans-serif;
+$font2: 'Open sans bold', sans-serif;
 
 
 
@@ -26,4 +27,30 @@ body {
 
 .displayblock {
     display: block;
+}
+
+.titulo{
+   padding-top: 30px;
+   font-family: $font2;
+
+}
+
+.buscar{
+    background-color: white;
+    color:  #1d72c2
+    
+    
+}
+
+.btn-outline-secondary{
+    border-color: #bec5be;
+}
+
+.subirarchivo{
+    border-color: #1d72c2;
+
+}
+
+.desplegable{
+    margin-left: 650px;
 }

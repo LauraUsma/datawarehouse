@@ -2,28 +2,39 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--Boostrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--Boostrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--google fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <!--css-->
-    <link rel="stylesheet" href="/front/public/styles.css" type="text/html">
+  <!--css-->
+  <link rel="stylesheet" href="/front/public/styles/styles.css" type="text/css">
+  <!--font awesone-->
+  <script src="https://kit.fontawesome.com/2b29b122bc.js" crossorigin="anonymous"></script>
+
+    <!--tabla  --> 
+
+    <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/096f51d3db.js"></script>
+  
 
 
 </head>
 
 <body>
-   
+
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1d72c2;">
     <a class="navbar-brand" href="#">logo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -45,11 +56,178 @@
   </nav>
 
 
+  <section class="titulo">
 
-  <h1>CONTACTOS</h1>
+    <h1>CONTACTOS</h1>
 
+  </section>
+
+
+
+  <section class="form-inline">
+    <nav class="navbar navbar-light ">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+        <button class="btn btn-outline-secondary my-2 my-sm-0 buscar" type="submit"><i
+            class="fas fa-search"></i></button>
+      </form>
+    </nav>
+
+
+    <section class="desplegable">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <button type="button" class="btn btn-outline-secondary subirarchivo buscar">1</button>
+
+        </div>
+
+
+        <div class="btn-group mr-sm-2" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary subirarchivo buscar dropdown-toggle"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Exportar Contactos
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item buscar" href="#">Exportar Seleccionados</a>
+            <a class="dropdown-item buscar" href="#">Todos los Filtrados</a>
+          </div>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-secondary">Agregar Contactos</button>
+        </div>
+      </div>
+
+    </section>
+  </section>
+
+
+    <!--script boostrap --> 
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--script tabla  --> 
+
+  <section id="grilla-users">
+    <table id="table-users" data-toolbar="#toolbar" data-click-to-select="true" data-id-field="id"
+      data-page-list="[10, 25, 50, 100, all]" data-side-pagination="server">
+    </table>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
+
+
+
+  <script type="text/javascript">
+    var $table = $('#table-users')
+    var $remove = $('#remove')
+    var selections = []
+
+    function operateFormatter(value, row, index) {
+      return [
+      '<a class="edit" href="javascript:void(0)" title="Edit">',
+        '<i class="fa fa-edit"></i>',
+        '</a> ',
+        '<a class="remove" href="javascript:void(0)" title="Remove">',
+        '<i class="fa fa-trash"></i>',
+        '</a>'
+      ].join('')
+    }
+
+    window.operateEvents = {
+      'click .edit': function (e, value, row, index) {
+          document.getElementById('nombre').value=row.nombre;
+          document.getElementById('apellido').value=row.apellido;
+          document.getElementById('email').value=row.email;
+          document.getElementById('perfil').value=row.perfil;
+      },
+      'click .remove': function (e, value, row, index) {
+        if (window.confirm("¿Desea eliminar el registro?")) {
+          console.log('windowOperateEvent', row, index);
+          $table.bootstrapTable('remove', {
+            field: 'id',
+            values: [row.id]
+          })
+
+          const body={
+            id: row.id
+          }
+        }
+      }
+    }
+
+    function initTable() {
+      $table.bootstrapTable('destroy').bootstrapTable({
+        url: 'http://127.0.0.1:3000/api/usuarios/all',
+        search: true,
+        pagination: true,
+        height: 550,
+        columns: [
+          [{
+            title: 'ID',
+            field: 'id',
+            align: 'center',
+            valign: 'middle'
+          }, {
+            field: 'Contactos',
+            title: 'Contactos',
+            align: 'center'
+          }, {
+            field: 'País/Región',
+            title: 'País/Región',
+            align: 'center'
+          }, {
+            field: 'Compañía',
+            title: 'Compañía',
+            align: 'center'
+          },  {
+            field: 'Cargo',
+            title: 'Cargo',
+            align: 'center'
+          },  {
+            field: 'Canal Preferido',
+            title: 'Canal Preferido',
+            align: 'center'
+          }, {
+            field: 'Interés',
+            title: 'Interés',
+            align: 'center'
+          },{
+            field: 'operate',
+            title: 'Acción',
+            align: 'center',
+            clickToSelect: false,
+            events: window.operateEvents,
+            formatter: operateFormatter
+          }]
+        ]
+      })
+
+      $remove.click(function (e) {
+        console.log('removeClic', e);
+      })
+    }
+
+    $(function () {
+      initTable()
+    })
+  </script>
 
   
 
 
+
 </body>
+
+</html>

@@ -167,7 +167,7 @@ let verificar_role = (req, res, next) => {
     
     let decodificado = jwt.verify(token, jwtClave)
 
-    const usuario = decodificado.user;
+    const usuario = decodificado.email;
 
     consulta_usuario(usuario)
         .then(arrayUsuarios =>{
@@ -183,6 +183,198 @@ let verificar_role = (req, res, next) => {
         })
 }
 
+//*************************************COMPAÑIAS**************************************************** */
+
+
+ //funcion para agregar compañias
+
+ async function nuevo_compania(companias) {
+    let data = Object.values(companias)
+    let resultado = await sequelize.query('INSERT INTO companias ( nombre, dirección, email, telefono, id_ciudades ) VALUES (?)', {
+        replacements: [data]
+    })
+    return resultado;
+}
+
+
+
+//**************************** */
+async function consulta_compania(companias){
+    let resultadoCompania = await sequelize.query('SELECT * FROM companias WHERE nombre = ?',{
+        type: sequelize.QueryTypes.SELECT,
+        replacements:[companias]
+       
+    })
+    return resultadoCompania
+}
+
+
+
+
+// middlware para validar el ingreso de companias
+
+let validarCompania= (req, res, next)=>{
+  
+    let nombre = req.body.nombre;
+   
+    if(nombre){
+        consulta_compania(nombre)
+        .then(proyects => {
+            let  companiaNueva = proyects.find(Compania => Compania.nombre == nombre)
+            if (! companiaNueva) {
+                return next();
+            } else if ( companiaNueva) {
+                res.status(409).send({
+                    status: 409,
+                    mensaje: 'La compañia ya existe'
+                })
+            }
+        }).catch(err => console.log(err));
+    }
+}
+
+//*****************************REGIONES***************************** */
+
+ //funcion para agregar REGIONES
+
+ async function nueva_region(regiones) {
+    let data = Object.values(regiones)
+    let resultado = await sequelize.query('INSERT INTO regiones ( nombre ) VALUES (?)', {
+        replacements: [data]
+    })
+    return resultado;
+}
+
+
+async function consulta_region(regiones){
+    let resultadoRegion = await sequelize.query('SELECT * FROM regiones WHERE nombre = ?',{
+        type: sequelize.QueryTypes.SELECT,
+        replacements:[regiones]
+       
+    })
+    return resultadoRegion
+}
+
+let validarRegion= (req, res, next)=>{
+  
+    let nombre = req.body.nombre;
+   
+    if(nombre){
+        consulta_region(nombre)
+        .then(proyects => {
+            let  regionNueva = proyects.find(region => region.nombre == nombre)
+            if (! regionNueva) {
+                return next();
+            } else if ( regionNueva) {
+                res.status(409).send({
+                    status: 409,
+                    mensaje: 'La región ya existe'
+                })
+            }
+        }).catch(err => console.log(err));
+    }
+}
+
+
+
+//*****************************paises***************************** */
+
+ //funcion para agregar paises
+
+ async function nuevo_pais(paises) {
+    let data = Object.values(paises)
+    let resultado = await sequelize.query('INSERT INTO paises ( nombre, region_id ) VALUES (?)', {
+        replacements: [data]
+    })
+    return resultado;
+}
+
+
+async function consulta_pais(paises){
+    let resultadoPais = await sequelize.query('SELECT * FROM paises WHERE nombre = ?',{
+        type: sequelize.QueryTypes.SELECT,
+        replacements:[paises]
+       
+    })
+    return resultadoPais
+}
+
+let validarPais= (req, res, next)=>{
+  
+    let nombre = req.body.nombre;
+   
+    if(nombre){
+        consulta_pais(nombre)
+        .then(proyects => {
+            let  paisNuevo = proyects.find(pais => pais.nombre == nombre)
+            if (! paisNuevo) {
+                return next();
+            } else if ( paisNuevo) {
+                res.status(409).send({
+                    status: 409,
+                    mensaje: 'El país ya existe'
+                })
+            }
+        }).catch(err => console.log(err));
+    }
+}
+
+
+//*****************************ciudades***************************** */
+
+ //funcion para agregar ciudades
+
+ async function nueva_ciudad(ciudades) {
+    let data = Object.values(ciudades)
+    let resultado = await sequelize.query('INSERT INTO ciudades ( nombre, pais_id ) VALUES (?)', {
+        replacements: [data]
+    })
+    return resultado;
+}
+
+
+async function consulta_ciudad(ciudades){
+    let resultadoCiudad = await sequelize.query('SELECT * FROM ciudades WHERE nombre = ?',{
+        type: sequelize.QueryTypes.SELECT,
+        replacements:[ciudades]
+       
+    })
+    return resultadoCiudad
+}
+
+let validarCiudad= (req, res, next)=>{
+  
+    let nombre = req.body.nombre;
+   
+    if(nombre){
+        consulta_ciudad(nombre)
+        .then(proyects => {
+            let  ciudadNueva = proyects.find(ciudad => ciudad.nombre == nombre)
+            if (! ciudadNueva) {
+                return next();
+            } else if ( ciudadNueva) {
+                res.status(409).send({
+                    status: 409,
+                    mensaje: 'La ciudad ya existe'
+                })
+            }
+        }).catch(err => console.log(err));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = {
@@ -196,5 +388,18 @@ module.exports = {
     roles_usuario,
     user_pass,
     verificar_role,
+    validarCompania,
+    consulta_compania,
+    nuevo_compania,
+    nueva_region,
+    consulta_region,
+    validarRegion,
+    nuevo_pais,
+    consulta_pais,
+    validarPais,
+    nueva_ciudad,
+    consulta_ciudad,
+    validarCiudad
+    
 
 }
