@@ -23,7 +23,7 @@ const{
 
 //ruta post para registrar usuarios
 
-router.post('/registro', validarUsuario, roles_usuario,verificar_role, (req, res) => {
+router.post('/registro', validarUsuario, roles_usuario, (req, res) => {
 
     nuevo_usuario(req.body)
         .then(proyects => res.status(200).send({
@@ -79,7 +79,7 @@ router.get('/all',  (req , res)=>{
 //****************ruta PUT para cambiar un dato del usuario************ */
 
 
-router.put('/',verificar_role, (req, res) => {
+router.put('/', (req, res) => {
     let{ nombre, apellido, email, perfil_id, id}=req.body;
     
        sequelize.query(`UPDATE usuarios SET nombre= ?, apellido = ?, email=?, perfil_id = ? WHERE id = ?`, {
@@ -96,7 +96,7 @@ router.put('/',verificar_role, (req, res) => {
 
    //Delete para borrar usuarios
    
-   router.delete('/',verificar_role, (req, res) => {
+   router.delete('/',(req, res) => {
        let{ id}=req.body;
        
           sequelize.query(`DELETE FROM usuarios WHERE id = ?`, {

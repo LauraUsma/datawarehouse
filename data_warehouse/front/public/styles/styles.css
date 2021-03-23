@@ -28,6 +28,12 @@ body {
   font-family: "Open sans bold", sans-serif;
 }
 
+.titleCompany {
+  padding-top: 30px;
+  font-family: "Open sans bold", sans-serif;
+  text-align: center;
+}
+
 .buscar {
   background-color: white;
   color: #1d72c2;
@@ -43,5 +49,113 @@ body {
 
 .desplegable {
   margin-left: 650px;
+}
+
+.modal2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #1d72c2;
+  height: 140px;
+  color: white;
+}
+
+.modal3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.modal4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.contenedor {
+  border: 3px solid #0683f9;
+  z-index: 1;
+  position: relative;
+  margin-top: -100px;
+  margin-left: 5px;
+  height: 131px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.avatar {
+  border-radius: 100%;
+  background-color: #1d72c2;
+  width: 85px;
+  height: 84px;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+.contenedorContactos {
+  margin-left: 20px;
+}
+
+.form-Contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contac1 {
+  display: block;
+}
+
+.agregarMas {
+  padding-top: 35px;
+  padding-left: 25px;
+}
+
+.datos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.labelBody {
+  margin-right: 16px;
+  font-family: "Open sans bold", sans-serif;
+}
+
+.moverBody {
+  padding-top: 0px;
+}
+
+.colorInput {
+  background-color: #C6CACC;
+}
+
+.colorInput2 {
+  background-color: #C6CACC;
+  color: white;
+}
+
+.colorInput3 {
+  background-color: white;
+  color: #C6CACC;
+}
+
+.usuario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=styles.css.map */

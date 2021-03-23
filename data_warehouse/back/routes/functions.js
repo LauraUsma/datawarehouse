@@ -163,7 +163,7 @@ let user_pass = (req, res, next) => {
 
 let verificar_role = (req, res, next) => {
 
-    let token = (req.headers.authorization).split(' ')[1];
+    let token = (req.headers.authorization).split('')[1];
     
     let decodificado = jwt.verify(token, jwtClave)
 

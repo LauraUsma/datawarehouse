@@ -11,14 +11,12 @@ const expressJwt = require('express-jwt');
 
 
 
-app.use(expressJwt({ secret: jwtClave, algorithms: ['sha1', 'RS256', 'HS256']}).unless({ path: ["/api/sign", "/api/usuarios/all",] }));
+app.use(expressJwt({ secret: jwtClave, algorithms: ['sha1', 'RS256', 'HS256']}).unless({ path: ["/api/sign", "/api/usuarios/all","/api/usuarios/registro","/api/usuarios"] }));
 app.use(express.json());
 app.use(cors());
 app.use('/api',apiRouter);
 
-//app.set('view engine', 'ejs');
-//app.engine('html', require('ejs').renderFile);
-//app.set('views', path.join(__dirname,'views'));
+
 app.set('port', 3000);
 
 require('./database');

@@ -34,6 +34,51 @@ router.post('/', validarCompania, (req, res) => {
 
 
 
+//ruta put para actualizar compañias
+
+router.put('/', (req, res) => {
+    let{ nombre, dirección, email, telefono, id_ciudades, id}=req.body;
+    
+       sequelize.query(`UPDATE companias SET nombre= ?, dirección = ?, email=?, telefono = ?, id_ciudades = ? WHERE id = ?`, {
+        replacements: [nombre, dirección, email, telefono, id_ciudades, id]
+           })
+           .then(proyects => res.status(200).send({
+               status: 'OK',
+               mensaje: 'Compañia Actualizada'
+           }))
+           .catch(err => console.log(err));
+   })
+
+
+// rut get para mostrar compañias
+
+router.get('/', (req , res)=>{
+
+    sequelize.query('SELECT * FROM companias', {type:sequelize.QueryTypes.SELECT})
+     .then(function (companias){
+         console.log(companias);
+         res.send(companias);
+     }).catch(err =>console.error(err));
+ });
+
+   
+   //Delete para borrar compañias
+   
+   router.delete('/', (req, res) => {
+    let{ id}=req.body;
+    
+       sequelize.query(`DELETE FROM companias WHERE id = ?`, {
+               replacements: [ id]
+           })
+           .then(proyects => res.status(200).send({
+               status: 'OK',
+               mensaje: 'Compañia Eliminada'
+           }))
+           .catch(err => console.log(err));
+   })
+   
+
+
 
 
 module.exports= router;  

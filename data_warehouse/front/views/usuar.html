@@ -104,10 +104,22 @@
                   <input type="password" id="repetirContrasena" class="form-control" id="colFormLabelLg" placeholder="Repetir Contraseña">
                 </div>
               </div>
+              <div class="form-group row " >
+                <label for="colFormLabelLg" id="cambiarusuario" class="col-sm-4 col-form-label displaynone">Id Usuario </label>
+                <div class="col-sm-8  displaynone" id="cambiarusuario2">
+                  <input type="text" id="usuarioId"  class="form-control" id="colFormLabelLg"  placeholder="Id Usuario">
+                </div>
+              </div>
 
               <div class="form-group">
                 <button id="btnCrear" class="btn  btn-block">
                   CREAR
+                </button>
+              </div>
+
+              <div class="form-group ">
+                <button id="btnCambiar" class="btn  btn-block displaynone">
+                  Cambiar
                 </button>
               </div>
             </form>
@@ -161,14 +173,34 @@
           document.getElementById('apellido').value=row.apellido;
           document.getElementById('email').value=row.email;
           document.getElementById('perfil').value=row.perfil;
+          let btnCrear = document.getElementById('btnCrear');
+          let btnCambiar = document.getElementById('btnCambiar');
+          let idUsuaCambiar= document.getElementById('cambiarusuario');
+          let idUsuaCambiar2= document.getElementById('cambiarusuario2');
+
+
+            if(document.getElementById('btnCambiar').style.display='none'){
+              document.getElementById('btnCrear').style.display= 'none';
+              document.getElementById('btnCambiar').style.display='block';
+              document.getElementById('cambiarusuario').style.display='block';
+              document.getElementById('cambiarusuario2').style.display='block';
+
+            };
+          
+          
       },
+      
+
       'click .remove': function (e, value, row, index) {
         if (window.confirm("¿Desea eliminar el registro?")) {
           console.log('windowOperateEvent', row, index);
           $table.bootstrapTable('remove', {
             field: 'id',
             values: [row.id]
-          })
+          }
+          )
+          
+          deleteRegistroUsuario(row.id);
 
           const body={
             id: row.id

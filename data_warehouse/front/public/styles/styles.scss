@@ -1,6 +1,7 @@
 $font1: 'Open Sans',
 sans-serif;
-$font2: 'Open sans bold', sans-serif;
+$font2: 'Open sans bold',
+sans-serif;
 
 
 
@@ -29,28 +30,136 @@ body {
     display: block;
 }
 
-.titulo{
-   padding-top: 30px;
-   font-family: $font2;
+.titulo {
+    padding-top: 30px;
+    font-family: $font2;
 
 }
 
-.buscar{
+.titleCompany{
+    padding-top: 30px;
+    font-family: $font2;
+    text-align: center;
+
+}
+
+.buscar {
     background-color: white;
-    color:  #1d72c2
-    
-    
+    color: #1d72c2
 }
 
-.btn-outline-secondary{
+.btn-outline-secondary {
     border-color: #bec5be;
 }
 
-.subirarchivo{
+.subirarchivo {
     border-color: #1d72c2;
 
 }
 
-.desplegable{
+.desplegable {
     margin-left: 650px;
+}
+
+.modal2{
+  display: flex;
+  flex-direction: column;
+  background-color: #1d72c2;
+  height: 140px;
+  color: white;
+}
+
+
+.modal3{
+    display: flex;
+    width: 100%;  
+  }
+
+  .modal4{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;  
+  }
+
+
+
+
+.contenedor{
+    border: 3px solid #0683f9;
+    z-index: 1;
+    position: relative;
+    margin-top: -100px;
+    margin-left: 5px;
+    height: 131px;
+    display: flex;
+      
+    
+}
+
+.avatar{
+    border-radius: 100%;
+    background-color:#1d72c2 ;
+    width: 85px;
+    height: 84px;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.contenedorContactos{
+    margin-left: 20px;
+}
+
+.form-Contact{
+    display: flex;
+   
+
+}
+
+.contac1{
+    display: block;
+       
+}
+
+
+
+.agregarMas{
+  padding-top: 35px;
+  padding-left: 25px;
+   
+}
+
+.datos{
+    display: flex;
+  justify-content: space-between;
+}
+
+.labelBody{
+   
+  margin-right: 16px;
+  font-family: $font2;
+}
+
+.moverBody{
+    padding-top: 0px;
+}
+
+.colorInput{
+    background-color:#C6CACC  ;
+}
+
+.colorInput2{
+    background-color:#C6CACC  ;
+    color: white;
+
+}
+
+.colorInput3{
+    background-color: white ;
+    color: #C6CACC;
+
+}
+
+
+.usuario{
+    display: flex;
 }
