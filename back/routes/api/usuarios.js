@@ -38,33 +38,11 @@ router.post('/registro', validarUsuario, verificar_role, (req, res) => {
 
 
 
-//ruta GET que devuelve la información del usuario
+//ruta GET que devuelve la información de los usuarios
 
-/*
-router.get('/', (req , res)=>{
-
-   let token = (req.headers.authorization).split(' ')[1];
-   let decodificado = jwt.verify(token, jwtClave);
-   const usuario= decodificado.email;
-
-   consulta_usuario(usuario)
-
-   .then(arrayUsuarios=>{
-       let users= arrayUsuarios.find(u => u.email == usuario)
-       res.status(200).send(users)
-   })
- });
-*/
-
-
- //**************** */
-
- 
 
 router.get('/all',  (req , res)=>{
-
-
-    const paginacion={
+   /* const paginacion={
         search:'',
         limit:10,
         offset:0
@@ -75,10 +53,28 @@ router.get('/all',  (req , res)=>{
  
     .then(arrayUsuarios=>{
         res.status(200).send(arrayUsuarios)
-    })
-  });
+    })*/
+
+    var queryString = '';
+
+
+    queryString = queryString + ' SELECT us.id, us.nombre,us.apellido, us.email , pf.perfil as perfil_id';
+    queryString = queryString + ' from usuarios us join perfil pf on (us.perfil_id= pf.id) ';
+
  
 
+
+  sequelize.query( queryString, 
+    {type:sequelize.QueryTypes.SELECT}
+      ). then(function (usuarios){
+         //console.log(usuarios.perfil);
+          res.send(usuarios);
+          
+      }).catch(err =>console.error(err));
+
+
+  });
+ 
 //****************ruta PUT para cambiar un dato del usuario************ */
 
 

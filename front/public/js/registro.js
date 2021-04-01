@@ -1,4 +1,10 @@
+let perfilaEnviar=
+$('#perfil').on('change', function(){
+  let valor = this.value;
+  let texto =$(this).find('option:selected').text();
 
+
+});
 
 let btnCrear = document.getElementById('btnCrear');
 
@@ -12,7 +18,7 @@ btnCrear.addEventListener('click', ()=>{
     let inputemail = document.getElementById('email');
     console.log(inputemail.value);
 
-    let inputperfil = document.getElementById('perfil');
+    let inputperfil =document.getElementById('perfil');
     console.log(inputperfil.value);
 
     let inputcontraseña = document.getElementById('contrasena');
@@ -47,11 +53,19 @@ btnCrear.addEventListener('click', ()=>{
 
     fetch('http://127.0.0.1:3000/api/usuarios/registro', fetchParams)
     .then(res=>res.json())
+    
+   
   
 
    
        
 })
+
+
+
+
+//************************** */
+
 
 
 
@@ -66,7 +80,9 @@ let fetchParams = {
   method:'DELETE',
   body: JSON.stringify(bodyDelete),
   headers:{
-    'Content-Type':'application/json'
+    'Content-Type':'application/json',
+    'Authorization': `BEARER ${localStorage.getItem('token')}`
+
   }
 }
 console.log('id del registro a borrar'+id);

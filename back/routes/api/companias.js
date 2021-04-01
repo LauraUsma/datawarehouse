@@ -53,14 +53,6 @@ router.put('/', (req, res) => {
 
 // rut get para mostrar compañias
 /*
-router.get('/', (req , res)=>{
-
-    sequelize.query('SELECT * FROM companias', {type:sequelize.QueryTypes.SELECT})
-     .then(function (companias){
-         console.log(companias);
-         res.send(companias);
-     }).catch(err =>console.error(err));
- });*/
 
  router.get('/',  (req , res)=>{
 
@@ -78,7 +70,7 @@ router.get('/', (req , res)=>{
     })
 
     
-  });
+  });*/
 
 
 

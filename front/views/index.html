@@ -2,68 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
-    <!--Boostrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+  <!--Boostrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--google fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <!--css-->
-    <link rel="stylesheet" href="/front/public/styles/styles.css" type="text/css">
-
+  <!--css-->
+  <link rel="stylesheet" href="/front/public/styles/styles.css" type="text/css">
 
 </head>
 
 <body>
-   
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1d72c2;">
-        <a class="navbar-brand" href="#">logo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-      </nav>
 
-      <!--formulario-->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1d72c2;">
+    <a class="navbar-brand" href="#">logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="container p-5" >
-        <div class="row">
-          <div class="cold-md-4 offset-md-4">
-            <div class="card">
-              <div class="cardheader text-white text-center ">
-                <h3>Bienvenido</h3>
-    
-              </div>
-              <div class="card-body">
-             
-                  <div class="form-group">
-                    <input id="usuario" type="text" class="form-control" placeholder="Usuario">
-                  </div>
-                  <div class="form-group">
-                    <input id="pass" type="password" class="form-control" placeholder="Contraseña">
-                  </div>
-                  <div class="form-group">
-                    <button id="btnIngresar" class="btn  btn-block">
-                      INGRESAR
-                    </button>
-                  </div>
-              
-    
-              </div>
+  </nav>
+
+  <!--formulario-->
+
+  <div class="container p-5">
+    <div class="row">
+      <div class="cold-md-4 offset-md-4">
+        <div class="card">
+          <div class="cardheader text-white text-center ">
+            <h3>Bienvenido</h3>
+
+          </div>
+          <div class="card-body">
+
+            <div class="form-group">
+              <input id="usuario" type="text" class="form-control" placeholder="Usuario" required>
             </div>
-    
+            <div class="form-group">
+              <input id="pass" type="password" class="form-control" placeholder="Contraseña" required>
+            </div>
+            <div class="form-group">
+              <button id="btnIngresar" class="btn  btn-block">
+                INGRESAR
+              </button>
+            </div>
+
+
           </div>
         </div>
-    
+
       </div>
-     
-      <script  src="../public/js/login.js"> </script>
-    
+    </div>
+
+  </div>
+
+
+  <script src="../public/js/login.js"> </script>
+
+  
+
 </body>
 
 </html>
