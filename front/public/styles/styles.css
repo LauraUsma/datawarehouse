@@ -162,4 +162,78 @@ body {
 .cambiosPerfil {
   margin-left: 17px;
 }
+
+.formulario__grupo-input {
+  position: relative;
+}
+
+.formulario__input-error {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+
+.formulario__input-error-activo {
+  display: block;
+}
+
+.formulario__validacion-estado {
+  position: absolute;
+  right: 23px;
+  bottom: 32px;
+  top: 10px;
+  z-index: 100;
+  opacity: 0;
+  font-size: 16px;
+}
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+  color: #1ed12d;
+  opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+  color: #bb2929;
+  opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+  border: 3px solid #bb2929;
+  opacity: 1;
+}
+
+.formulario__mensaje {
+  height: 35px;
+  line-height: 35px;
+  background: #f66060;
+  padding: 0 15px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.formulario__mensaje-activo {
+  display: block;
+}
+
+.formulario__mensaje p {
+  margin: 0;
+}
+
+.formulario__mensaje-exito {
+  text-align: center;
+  font-size: 14px;
+  background: #c2f8bb;
+  color: #119200;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 15px;
+  border-radius: 3px;
+  margin-top: 10px;
+  display: none;
+}
+
+.formulario__mensaje-exito-activo {
+  display: block;
+}
 /*# sourceMappingURL=styles.css.map */

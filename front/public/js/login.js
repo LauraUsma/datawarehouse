@@ -41,21 +41,3 @@ btnIngresar.addEventListener('click', () => {
 
 
 
-//**************** */
-/*
-
-.then(json => {
-  localStorage.setItem('token', json.token)
-
-  if ( !inputemail.value) {
-    alert("El usuario fue creado con Exito")
-  }else if(inputemail.value ){
-    alert("El usuario ya existe")
-
-  }
-  else if(!json.token){
-    alert("solo el Administrador puede realizar esta acción")
-
-  }
-});
-*/
