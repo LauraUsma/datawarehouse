@@ -2,32 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--Boostrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--Boostrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--google fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <!--css-->
-    <link rel="stylesheet" href="/front/public/styles.css" type="text/html">
-    
-    <!--jstree-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+  <!--css-->
+  <link rel="stylesheet" href="/front/public/styles/styles.css" type="text/css">
+
+  <!--jstree-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 
 
 
 </head>
 
 <body>
-   
+
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1d72c2;">
     <a class="navbar-brand" href="#">logo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -48,43 +49,142 @@
     </div>
   </nav>
 
+  <main>
+ 
+    <!--formulario-->
 
-  <h1>REGIONES</h1>
+    <div class="container p-5">
+      <div class="row">
+        <div class="cold-md-4" style="min-width:100%">
+          <div class="card">
+            <div class="cardheader text-black text-center ">
+              <h5>REGIONES</h5>
+            </div>
+            <div class="card-body">
 
-  <div id="jstree_demo_div">
-    <ul>
-      <li>Root node 1
-        <ul>
-          <li id="child_node_1">Child node 1</li>
-          <li>Child node 2</li>
-        </ul>
-      </li>
-      <li>Root node 2</li>
-    </ul>
+              <form>
+                <div class="form-group row">
+                  <label for="colFormLabelLg" class="col-sm-4 col-form-label">NUEVA REGION</label>
+                  <div class="col-sm-8">
+                    <input type="text" id="regionNueva" class="form-control" id="colFormLabelLg" placeholder="Agregar Región">
+                  </div>
+                </div>
 
-  </div>
+                <div class="form-group">
+                  <button id="btnAgregarRegion" class="btn  btn-block">
+                    AGREGAR REGION
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container p-5">
+      <div class="row">
+        <div class="cold-md-4" style="min-width:100%">
+          <div class="card">
+            <div class="cardheader text-black text-center ">
+              <h5>PAISES</h5>
+            </div>
+            <div class="card-body">
+              
+              <form>
+            
+
+                <div class="form-group row ">
+
+                  <div class="form-group row col-sm-4 campoRegion">
+                    <select class=" form-control form-control" id="colFormLabelSm" id="seleccionaRegion" >
+                      <option selected>selecciona una región</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group row col-sm-8">
+                   <input type="text" id="regionPais" class="form-control" id="colFormLabelLg" placeholder="Agregar País">
+                  </div>
+                </div>
+
+
+               
+
+                <div class="form-group">
+                  <button id="btnCrearPais" class="btn  btn-block">
+                    AGREGAR PAÍS
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container p-5">
+      <div class="row">
+        <div class="cold-md-4" style="min-width:100%">
+          <div class="card">
+            <div class="cardheader text-black text-center ">
+              <h5>CIUDAD</h5>
+            </div>
+            <div class="card-body">
+
+              <form>
+
+                <div class="form-group row ">
+
+                  <div class="form-group row col-sm-4 campoRegion">
+                    <select class=" form-control form-control" id="colFormLabelSm" >
+                      <option selected>selecciona un país</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group row col-sm-8">
+                   <input type="text" id="regionCiudad" class="form-control" id="colFormLabelLg" placeholder="Agregar Ciudad">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <button id="btnCrearCiudad" class="btn  btn-block">
+                    AGREGAR CIUDAD
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
+  </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-  <script src="dist/jstree.min.js"></script>
-  <script>
-    $(function () {
 
-      $('#jstree').jstree();
 
-      $('#jstree').on("changed.jstree", function (e, data) {
-        console.log(data.selected);
-      });
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
 
-      $('button').on('click', function () {
-        $('#jstree').jstree(true).select_node('child_node_1');
-        $('#jstree').jstree('select_node', 'child_node_1');
-        $.jstree.reference('#jstree').select_node('child_node_1');
-      });
-    });
-    </script>
+  <script src="/front/public/js/funciones.js"></script>
+  <script src="/front/public/js/regiones.js"></script>
+  <script src="/front/public/js/paises.js"></script>
+
 
 </body>
+
 </html>

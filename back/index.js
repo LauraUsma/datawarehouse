@@ -11,7 +11,7 @@ const expressJwt = require('express-jwt');
 
 
 
-app.use(expressJwt({ secret: jwtClave, algorithms: ['sha1', 'RS256', 'HS256']}).unless({ path: ["/api/sign", "/api/usuarios/all", "/api/companias", "/api/companias/detalles" ] }));
+app.use(expressJwt({ secret: jwtClave, algorithms: ['sha1', 'RS256', 'HS256']}).unless({ path: ["/api/sign", "/api/usuarios/all", "/api/companias", "/api/companias/detalles", "/api/region", "/api/paises", "/api/ciudades"] }));
 app.use(express.json());
 app.use(cors());
 app.use('/api',apiRouter);
