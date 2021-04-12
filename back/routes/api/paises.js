@@ -52,6 +52,21 @@ router.put('/', (req, res) => {
 
 // rut get para mostrar paises
 
+async function obtenerTodosLosPaises() {
+
+    let paises = await sequelize.query('SELECT * FROM paises', { type: sequelize.QueryTypes.SELECT})
+    return paises;
+ }
+
+ router.get('/', async(req, res) => {
+
+    let pais = await obtenerTodosLosPaises();
+    return res.status(200).json({pais})
+})
+
+
+
+/*
 router.get('/', (req , res)=>{
 
     sequelize.query('SELECT * FROM paises', {type:sequelize.QueryTypes.SELECT})
@@ -60,7 +75,7 @@ router.get('/', (req , res)=>{
          res.send(paises);
      }).catch(err =>console.error(err));
  });
- 
+ */
  
 // ruta delete para eliminar regiones
 

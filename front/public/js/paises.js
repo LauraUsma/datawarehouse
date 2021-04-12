@@ -3,6 +3,7 @@ let btnCrearPais = document.getElementById('btnCrearPais');
 btnCrearPais.addEventListener('click', (e)=>{
     let region_id = document.getElementById('seleccionaRegion');
     console.log(region_id.value)
+    
     let inputregionPais=document.getElementById('regionPais');
     console.log(inputregionPais.value)
 
@@ -29,22 +30,21 @@ btnCrearPais.addEventListener('click', (e)=>{
 },false)
 
 
-async function loadRegiones() {
-    let region = document.getElementById('seleccionaRegion');
-    let resultado = await apiWarehouse('api/region', 'GET','','');
+async function loadRegions() {
+    const selected = document.getElementById('seleccionaRegion');
+    const resultado = await apiWarehouse('api/region', 'GET','','');
     console.log(resultado);
 
-    resultado.rows.regiones.forEach (row=>
-        {
-    const element=document.createElement('option');
+    resultado.rows.regions.forEach(row=>{
+    const elemento=document.createElement('option');
     const textNode = document.createTextNode(row.nombre);
-    element.appendChild(textNode);
-    element.setAttribute('value',row.region_id);
-    region.add(element);
+    elemento.appendChild(textNode);
+    elemento.setAttribute('value', row.id);
+    selected.add(elemento);
 });
 
 }
-loadRegiones();
+loadRegions();
 
 
 

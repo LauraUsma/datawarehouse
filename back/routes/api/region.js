@@ -53,15 +53,32 @@ router.put('/', (req, res) => {
 
 // rut get para mostrar regiones 
 
+async function obtenerTodasLasRegiones() {
+
+    let region = await sequelize.query('SELECT * FROM regiones', { type: sequelize.QueryTypes.SELECT})
+    return region;
+ }
+
+ router.get('/', async (req, res) => {
+
+    let regions = await obtenerTodasLasRegiones();
+    return res.status(200).json({regions})
+})
+
+
+
+
+/*
 router.get('/', (req , res)=>{
 
     sequelize.query('SELECT * FROM regiones', {type:sequelize.QueryTypes.SELECT})
      .then(function (regiones){
          console.log(regiones);
-         res.send(regiones);
+         //res.send(regiones);
+       return res.status(200).json({regiones})
      }).catch(err =>console.error(err));
  });
- 
+ */
  
 // ruta delete para eliminar regiones
 
