@@ -242,4 +242,8 @@ body {
 .formulario__mensaje-exito-activo {
   display: block;
 }
+
+.seccionCompanias {
+  margin-left: 1px;
+}
 /*# sourceMappingURL=styles.css.map */

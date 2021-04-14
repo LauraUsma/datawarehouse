@@ -35,7 +35,7 @@ async function loadRegions() {
     const resultado = await apiWarehouse('api/region', 'GET','','');
     console.log(resultado);
 
-    resultado.rows.regions.forEach(row=>{
+    resultado.rows.forEach(row=>{
     const elemento=document.createElement('option');
     const textNode = document.createTextNode(row.nombre);
     elemento.appendChild(textNode);

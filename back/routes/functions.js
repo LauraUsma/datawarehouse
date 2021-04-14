@@ -211,7 +211,7 @@ let verificar_role = (req, res, next) => {
 
  async function nuevo_compania(companias) {
     let data = Object.values(companias)
-    let resultado = await sequelize.query('INSERT INTO companias ( nombre, dirección, email, telefono, id_ciudades ) VALUES (?)', {
+    let resultado = await sequelize.query('INSERT INTO companias ( nombre, direccion, email, telefono, id_ciudades ) VALUES (?)', {
         replacements: [data]
     })
     return resultado;

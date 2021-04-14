@@ -70,43 +70,48 @@
           </div>
           <div class="card-body">
 
+            
+
             <form>
               <div class="form-group row">
                 <label for="colFormLabelSm" class="col-sm-4 col-form-label">Nombre</label>
                 <div class="col-sm-8">
-                  <input type="text" id="nombre" class="form-control form-control-sm" id="colFormLabelSm"
+                  <input type="text" id="nombreCompania" class="form-control form-control-sm" id="colFormLabelSm"
                     placeholder="Nombre">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label">Dirección</label>
                 <div class="col-sm-8">
-                  <input type="text" id="dire" class="form-control" id="colFormLabel" placeholder="Dirección">
+                  <input type="text" id="direCompania" class="form-control" id="colFormLabel" placeholder="Dirección">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabelLg" class="col-sm-4 col-form-label">Email</label>
                 <div class="col-sm-8">
-                  <input type="email" id="email" class="form-control" id="colFormLabelLg" placeholder="Email">
+                  <input type="email" id="emailCompania" class="form-control" id="colFormLabelLg" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabelSm" class="col-sm-4 col-form-label">Telefono</label>
                 <div class="col-sm-8">
-                  <input type="number" id="tel" class="form-control form-control-sm" id="colFormLabelSm"
+                  <input type="number" id="telCompania" class="form-control form-control-sm" id="colFormLabelSm"
                     placeholder="Numero Contacto">
                 </div>
               </div>
+
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label">Ciudad</label>
-                <div class="col-sm-8">
-                  <input type="text" id="city" class="form-control" id="colFormLabel" placeholder="Ciudad">
+                <div class="form-group row col-sm-8 seccionCompanias ">
+                  <select class=" form-control " id="ciudadCompania">
+                    <option selected>selecciona una ciudad</option>
+                  </select>
                 </div>
               </div>
 
 
               <div class="form-group">
-                <button id="btnCrear" class="btn  btn-block">
+                <button id="btnCrearCompania" class="btn  btn-block">
                   AGREGAR
                 </button>
               </div>
@@ -136,6 +141,7 @@
   <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
 
 
+  <script src="/front/public/js/funciones.js"></script>
 
   <script  src="../public/js/companias.js"> </script>
 
@@ -157,23 +163,12 @@
 
     window.operateEvents = {
       'click .edit': function (e, value, row, index) {
-          document.getElementById('nombre').value=row.nombre;
-          document.getElementById('apellido').value=row.apellido;
-          document.getElementById('email').value=row.email;
-          document.getElementById('perfil').value=row.perfil;
-          let btnCrear = document.getElementById('btnCrear');
-          let btnCambiar = document.getElementById('btnCambiar');
-          let idUsuaCambiar= document.getElementById('cambiarusuario');
-          let idUsuaCambiar2= document.getElementById('cambiarusuario2');
-
-
-            if(document.getElementById('btnCambiar').style.display='none'){
-              document.getElementById('btnCrear').style.display= 'none';
-              document.getElementById('btnCambiar').style.display='block';
-              document.getElementById('cambiarusuario').style.display='block';
-              document.getElementById('cambiarusuario2').style.display='block';
-
-            };
+        document.getElementById('nombreCompania').value=row.nombre;
+        document.getElementById('nombreCompania').setAttribute('data-id', row.id);
+        document.getElementById('direCompania').value=row.direccion;
+        document.getElementById('emailCompania').value=row.email;
+        document.getElementById('telCompania').value=row.telefono;
+        document.getElementById('ciudadCompania').value=row.id_ciudades;
           
           
       },
@@ -188,7 +183,7 @@
           }
           )
           
-          deleteRegistroUsuario(row.id);
+          deleteCompanias(row.id);
 
           const body={
             id: row.id
@@ -199,7 +194,8 @@
 
     function initTable() {
       $table.bootstrapTable('destroy').bootstrapTable({
-        url: 'http://127.0.0.1:3000/api/companias/detalles',
+        url: 'http://127.0.0.1:3000/api/companias',
+       
         search: true,
         pagination: true,
         height: 550,
@@ -229,13 +225,7 @@
             field: 'ciudad',
             title: 'Ciudad',
             align: 'center'
-          }
-          , {
-            field: 'id_ciudades',
-            title: 'id',
-            align: 'center'
-          }
-          , {
+          } , {
             field: 'operate',
             title: 'Acción',
             align: 'center',

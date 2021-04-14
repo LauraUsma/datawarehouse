@@ -37,18 +37,28 @@ router.post('/', validarCompania, (req, res) => {
 
 //ruta put para actualizar compañias
 
-router.put('/', (req, res) => {
-    let{ nombre, dirección, email, telefono, id_ciudades, id}=req.body;
-    
-       sequelize.query(`UPDATE companias SET nombre= ?, dirección = ?, email=?, telefono = ?, id_ciudades = ? WHERE id = ?`, {
-        replacements: [nombre, dirección, email, telefono, id_ciudades, id]
-           })
-           .then(proyects => res.status(200).send({
-               status: 'OK',
-               mensaje: 'Compañia Actualizada'
-           }))
-           .catch(err => console.log(err));
+async function actualizarCompanias(data, id) {
+    const {nombre, direccion, email, telefono, id_ciudades }=data
+    let companias = await  sequelize.query('UPDATE Companias SET nombre = :nombre, direccion= :direccion,email= :email, telefono= :telefono, id_ciudades= :id_ciudades WHERE id= :id',
+    { replacements: {nombre, direccion, telefono, id_ciudades, email, id}}
+    ).then(function(cambios) {
+       console.log(cambios)
+   }) 
+   return companias
+ }
+ 
+
+router.put('/:id', (req, res) => {
+    actualizarCompanias(req.body, req.params.id).then(compania=>{
+        res.status(200).json('compañia Actualizada')
+    })
+    .catch(error=>{
+        console.log(error)
+       
+    })
    })
+
+
 
 
 // rut get para mostrar compañias
@@ -74,12 +84,12 @@ router.put('/', (req, res) => {
 
 
 
-  router.get('/detalles', (req , res)=>{
+  router.get('/', (req , res)=>{
       
     var queryString = '';
 
     console.log('ENTRE');
-    queryString = queryString + ' SELECT cp.id, cp.nombre, cp.direccion, cp.email , cp.telefono, cd.nombre as ciudad , cp.id_ciudades ';
+    queryString = queryString + ' SELECT cp.id, cp.nombre, cp.direccion, cp.email , cp.telefono, cd.nombre as ciudad ';
     queryString = queryString + ' from companias cp join ciudades cd on (cp.id_ciudades= cd.id) ';
 
 
@@ -89,7 +99,7 @@ router.put('/', (req, res) => {
   sequelize.query( queryString, 
     {type:sequelize.QueryTypes.SELECT}
       ). then(function (companias){
-         console.log(companias.ciudad);
+         //console.log(companias.ciudad);
           res.send(companias);
       }).catch(err =>console.error(err));
 

@@ -33,6 +33,10 @@ router.use('/paises', apiPais);
 const apiCiudades= require('./api/ciudades');
 router.use('/ciudades', apiCiudades);
 
+//ruta para allregiones
+
+const apiRegiones= require('./api/regiones');
+router.use('/regiones', apiRegiones);
 
 
 

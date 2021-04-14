@@ -16,6 +16,14 @@
   <!--css-->
   <link rel="stylesheet" href="/front/public/styles/styles.css" type="text/css">
 
+    <!--tabla  --> 
+
+    <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/096f51d3db.js"></script>
+  
+
   <!--jstree-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 
@@ -166,7 +174,14 @@
 
 
   </main>
+<div class="tablaRegiones"> 
+  <section id="grilla-users" >
+    <table id="table-users" data-toolbar="#toolbar" data-click-to-select="true" data-id-field="id"
+      data-page-list="[10, 25, 50, 100, all]" data-side-pagination="server">
+    </table>
 
+  </section>
+</div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
@@ -184,6 +199,107 @@
   <script src="/front/public/js/regiones.js"></script>
   <script src="/front/public/js/paises.js"></script>
   <script src="/front/public/js/ciudades.js"></script>
+
+
+  <script type="text/javascript">
+    var $table = $('#table-users')
+    var $remove = $('#remove')
+    var selections = []
+
+    function operateFormatter(value, row, index) {
+      return [
+      '<a class="edit" href="javascript:void(0)" title="Edit">',
+        '<i class="fa fa-edit"></i>',
+        '</a> ',
+        '<a class="remove" href="javascript:void(0)" title="Remove">',
+        '<i class="fa fa-trash"></i>',
+        '</a>'
+      ].join('')
+    }
+
+    window.operateEvents = {
+      'click .edit': function (e, value, row, index) {
+          document.getElementById('nombre').value=row.nombre;
+          document.getElementById('apellido').value=row.apellido;
+          document.getElementById('email').value=row.email;
+          document.getElementById('perfil').value=row.perfil;
+          let btnCrear = document.getElementById('btnCrear');
+          let btnCambiar = document.getElementById('btnCambiar');
+          let idUsuaCambiar= document.getElementById('cambiarusuario');
+          let idUsuaCambiar2= document.getElementById('cambiarusuario2');
+
+
+            if(document.getElementById('btnCambiar').style.display='none'){
+              document.getElementById('btnCrear').style.display= 'none';
+              document.getElementById('btnCambiar').style.display='block';
+              document.getElementById('cambiarusuario').style.display='block';
+              document.getElementById('cambiarusuario2').style.display='block';
+
+            };
+          
+          
+      },
+      
+
+      'click .remove': function (e, value, row, index) {
+        if (window.confirm("¿Desea eliminar el registro?")) {
+          console.log('windowOperateEvent', row, index);
+          $table.bootstrapTable('remove', {
+            field: 'id',
+            values: [row.id]
+          }
+          )
+          
+          deleteRegistroUsuario(row.id);
+
+          const body={
+            id: row.id
+          }
+        }
+      }
+    }
+
+    function initTable() {
+      $table.bootstrapTable('destroy').bootstrapTable({
+        url: 'http://127.0.0.1:3000/api/region',
+        search: true,
+        pagination: true,
+        height: 550,
+        columns: [
+          [{
+            title: 'ID',
+            field: 'id',
+            align: 'center',
+            valign: 'middle'
+          }, {
+            field: 'nombre',
+            title: 'Region',
+            align: 'center'
+          }, {
+            field: 'operate',
+            title: 'Acción',
+            align: 'center',
+            clickToSelect: false,
+            events: window.operateEvents,
+            formatter: operateFormatter
+          }]
+        ]
+      })
+
+      $remove.click(function (e) {
+        console.log('removeClic', e);
+      })
+    }
+
+    $(function () {
+      initTable()
+    })
+  </script>
+
+
+
+
+
 
 
 </body>

@@ -58,27 +58,38 @@ async function obtenerTodasLasRegiones() {
     let region = await sequelize.query('SELECT * FROM regiones', { type: sequelize.QueryTypes.SELECT})
     return region;
  }
-
+/*
  router.get('/', async (req, res) => {
 
+    
     let regions = await obtenerTodasLasRegiones();
     return res.status(200).json({regions})
+
+
 })
+*/
 
 
 
 
-/*
 router.get('/', (req , res)=>{
 
-    sequelize.query('SELECT * FROM regiones', {type:sequelize.QueryTypes.SELECT})
+            const paginacion={
+        search:'',
+        limit:10,
+        offset:0
+    
+        }
+        
+    obtenerTodasLasRegiones(paginacion)
+
      .then(function (regiones){
          console.log(regiones);
-         //res.send(regiones);
-       return res.status(200).json({regiones})
+         res.send(regiones);
+       return res.status(200).json({regiones});
      }).catch(err =>console.error(err));
  });
- */
+ 
  
 // ruta delete para eliminar regiones
 
@@ -95,30 +106,6 @@ router.delete('/',(req,res)=>{
     .catch(err=> console.log(err));
 })
    
-
-//****************************** */
-/*
-router.get('/regiones', (req , res)=>{
-    var queryString = '';
-    queryString = queryString + ' SELECT regiones.id id, regiones.nombre Nombre Región, paises.nombre Nombre Pais, ciudades.nombre Nombre Ciudad';
-    queryString = queryString + ' from regiones rg join paises ps on (rg.id= ps.region_id) ';
-    queryString = queryString + ' join ciudades cd on (ps.id = cd.pais_id) ';
-
-
-    
-    let user= req.body.id;
-
-
-  sequelize.query( queryString, 
-    {replacements: [user],type:sequelize.QueryTypes.SELECT}
-      ). then(function (regiones){
-         console.log(regiones);
-          res.send(regiones);
-      }).catch(err =>console.error(err));
-
- });*/
-
-
 
 
  
