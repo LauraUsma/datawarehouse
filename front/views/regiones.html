@@ -174,14 +174,14 @@
 
 
   </main>
-<div class="tablaRegiones"> 
-  <section id="grilla-users" >
+
+  <section id="grilla-users">
     <table id="table-users" data-toolbar="#toolbar" data-click-to-select="true" data-id-field="id"
       data-page-list="[10, 25, 50, 100, all]" data-side-pagination="server">
     </table>
-
   </section>
-</div>
+
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
@@ -219,23 +219,10 @@
 
     window.operateEvents = {
       'click .edit': function (e, value, row, index) {
-          document.getElementById('nombre').value=row.nombre;
-          document.getElementById('apellido').value=row.apellido;
-          document.getElementById('email').value=row.email;
-          document.getElementById('perfil').value=row.perfil;
-          let btnCrear = document.getElementById('btnCrear');
-          let btnCambiar = document.getElementById('btnCambiar');
-          let idUsuaCambiar= document.getElementById('cambiarusuario');
-          let idUsuaCambiar2= document.getElementById('cambiarusuario2');
+          document.getElementById('regionNueva').value=row.nombre;
+          document.getElementById('regionNueva').setAttribute('data-id', row.id);
 
 
-            if(document.getElementById('btnCambiar').style.display='none'){
-              document.getElementById('btnCrear').style.display= 'none';
-              document.getElementById('btnCambiar').style.display='block';
-              document.getElementById('cambiarusuario').style.display='block';
-              document.getElementById('cambiarusuario2').style.display='block';
-
-            };
           
           
       },
@@ -261,7 +248,7 @@
 
     function initTable() {
       $table.bootstrapTable('destroy').bootstrapTable({
-        url: 'http://127.0.0.1:3000/api/region',
+        url: 'http://127.0.0.1:3000/api/regiones',
         search: true,
         pagination: true,
         height: 550,
@@ -272,8 +259,16 @@
             align: 'center',
             valign: 'middle'
           }, {
-            field: 'nombre',
+            field: 'region',
             title: 'Region',
+            align: 'center'
+          }, {
+            field: 'pais',
+            title: 'Pais',
+            align: 'center'
+          }, {
+            field: 'ciudad',
+            title: 'Ciudad',
             align: 'center'
           }, {
             field: 'operate',
@@ -295,9 +290,6 @@
       initTable()
     })
   </script>
-
-
-
 
 
 

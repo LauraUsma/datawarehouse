@@ -65,7 +65,6 @@ async function obtenerTodasLasRegiones() {
     let regions = await obtenerTodasLasRegiones();
     return res.status(200).json({regions})
 
-
 })
 */
 
