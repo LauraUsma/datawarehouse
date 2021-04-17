@@ -28,6 +28,11 @@ body {
   font-family: "Open sans bold", sans-serif;
 }
 
+.titulo1 {
+  padding: 30px;
+  font-family: "Open sans bold", sans-serif;
+}
+
 .titleCompany {
   padding-top: 30px;
   font-family: "Open sans bold", sans-serif;
@@ -47,8 +52,30 @@ body {
   border-color: #1d72c2;
 }
 
-.desplegable {
-  margin-left: 650px;
+.bnAgregar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 30px;
+}
+
+.inputSearch {
+  width: 210px;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
 
 .modal2 {

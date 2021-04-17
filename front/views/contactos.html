@@ -57,242 +57,232 @@
   </nav>
 
 
-  <section class="titulo">
+  <section class="titulo1">
 
     <h1>CONTACTOS</h1>
 
   </section>
 
+  <div class="bnAgregar">
+    <div >
+      <input class=" inputSearch" type="search" placeholder="Search" aria-label="Search"></input>
+      <button class="btn btn-outline-secondary  buscar" type="submit"><i class="fas fa-search"></i></button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#modal1">AgregarContactos</button>
+    </div>
+  </div>
 
 
-  <section class="form-inline">
-    <nav class="navbar navbar-light ">
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-        <button class="btn btn-outline-secondary my-2 my-sm-0 buscar" type="submit"><i
-            class="fas fa-search"></i></button>
-      </form>
-    </nav>
 
 
-    <section class="desplegable">
-      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-       
-        <div class="btn-group" role="group" aria-label="Third group">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal1">Agregar Contactos</button>
-        </div>
-      </div>
+  <section class="">
 
 
-      <div class="container">
+    <div class="container">
 
-        <div class="modal" tabindex="-1" id="modal1">
-          <div class="modal-dialog modal-lg" style="min-width: 98%; ">
+      <div class="modal" tabindex="-1" id="modal1">
+        <div class="modal-dialog modal-lg" style="min-width: 98%; ">
 
 
-            <div class="modal-content">
+          <div class="modal-content">
 
-              <div class="modal-header modal2 ">
-                <div class="modal4">
-                  Nuevo Contacto
-                  <span><i class="fas fa-times"></i></span>
-                </div>
+            <div class="modal-header modal2 ">
+              <div class="modal4">
+                Nuevo Contacto
+                <span><i class="fas fa-times"></i></span>
               </div>
+            </div>
 
-              <div class="modal-dialog modal-lg" style="min-width: 96%;">
+            <div class="modal-dialog modal-lg" style="min-width: 96%;">
 
-                <div class="modal-content contenedor">
-                  <div class="modal-header  ">
-                    
+              <div class="modal-content contenedor">
+                <div class="modal-header  ">
 
-                    <div class="contenedorContactos">
-                      <form class="form-Contact ">
 
-                        <div class=" contact1 form-row" id="contacto1">
-                          <label for="colFormLabelSm" class="col-sm-4 col-form-label">Nombre*</label>
-                          <input type="text" id="nombre" class="form-control form-control-sm" 
-                            placeholder="Nombre">
-                        </div>
+                  <div class="contenedorContactos">
+                    <form class="form-Contact ">
 
-                        <div class="contact1 form-row" id="contacto1">
-                          <label for="colFormLabel" class="col-sm-4 col-form-label">Apellido*</label>
-                          <input type="text" id="apellido" class="form-control"
-                            placeholder="Apellido">
-                        </div>
+                      <div class=" contact1 form-row" id="contacto1">
+                        <label for="colFormLabelSm" class="col-sm-4 col-form-label">Nombre*</label>
+                        <input type="text" id="nombre" class="form-control form-control-sm" placeholder="Nombre">
+                      </div>
 
-                        <div class="contact1 form-row" id="contacto1">
-                          <label for="colFormLabel" class="col-sm-3 col-form-label">Cargo*</label>
-                          <input type="text" id="cargo" class="form-control" placeholder="Cargo">
-                        </div>
+                      <div class="contact1 form-row" id="contacto1">
+                        <label for="colFormLabel" class="col-sm-4 col-form-label">Apellido*</label>
+                        <input type="text" id="apellido" class="form-control" placeholder="Apellido">
+                      </div>
 
-                        <div class="contact1 form-row" id="contacto1">
-                          <label for="colFormLabel" class="col-sm-3 col-form-label">Email*</label>
-                          <input type="email" id="email" class="form-control"placeholder="Email">
-                        </div>
+                      <div class="contact1 form-row" id="contacto1">
+                        <label for="colFormLabel" class="col-sm-3 col-form-label">Cargo*</label>
+                        <input type="text" id="cargo" class="form-control" placeholder="Cargo">
+                      </div>
 
-                        <div class="contact1 form-row" id="contacto1">
-                          <label for="colFormLabel" class="col-sm-4 col-form-label">Compañia*</label>
-                          <input type="text" id="compañia" class="form-control" 
-                            placeholder="compañia">
-                        </div>
+                      <div class="contact1 form-row" id="contacto1">
+                        <label for="colFormLabel" class="col-sm-3 col-form-label">Email*</label>
+                        <input type="email" id="email" class="form-control" placeholder="Email">
+                      </div>
 
-                      </form>
-                    </div>
+                      <div class="contact1 form-row" id="contacto1">
+                        <label for="colFormLabel" class="col-sm-4 col-form-label">Compañia*</label>
+                        <input type="text" id="compañia" class="form-control" placeholder="compañia">
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!--*****************modal body************************-->
+
+            <div class="modal-body moverBody">
+              <form class="form-group contenedorContactos ">
+
+                <div class="modal3">
+
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-3 col-form-label">Región</label>
+                    <select class="form-control  ">
+                      <option>Selecciona Región</option>
+                      <option>...</option>
+                    </select>
                   </div>
 
-                </div>
-              </div>
 
-              <!--*****************modal body************************-->
-
-              <div class="modal-body moverBody">
-                <form class="form-group contenedorContactos ">
-
-                  <div class="modal3">
-
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-3 col-form-label">Región</label>
-                      <select class="form-control  ">
-                        <option>Selecciona Región</option>
-                        <option>...</option>
-                      </select>
-                    </div>
-
-
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-3 col-form-label ">País</label>
-                      <select class="form-control colorInput">
-                        <option>Seleccionar País</option>
-                        <option>...</option>
-                      </select>
-                    </div>
-
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-3 col-form-label">Ciudad</label>
-                      <select class="form-control colorInput">
-                        <option>Seleccionar Ciudad</option>
-                        <option>...</option>
-                      </select>
-                    </div>
-
-                    <div class="contact1 labelBody" id="contacto3">
-                      <label for="colFormLabel" class="col-sm-3 col-form-label">Dirección</label>
-                      <input type="text" id="direccion" class="form-control" placeholder="Dirección">
-                    </div>
-
-                    <div class="contact1 labelBody"id="contacto2">
-                      <label for="colFormLabel" class="col-sm-3 col-form-label">Interés</label>
-                      <select class="form-control ">
-                        <option>0%</option>
-                        <option>25%</option>
-                        <option>50%</option>
-                        <option>75%</option>
-                        <option>100%</option>
-                      </select>
-                    </div>
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-3 col-form-label ">País</label>
+                    <select class="form-control colorInput">
+                      <option>Seleccionar País</option>
+                      <option>...</option>
+                    </select>
                   </div>
 
-                  <div class="modal3">
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-3 col-form-label">Ciudad</label>
+                    <select class="form-control colorInput">
+                      <option>Seleccionar Ciudad</option>
+                      <option>...</option>
+                    </select>
+                  </div>
 
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-12 col-form-label canal">Canal de Contacto</label>
-                      <select class="form-control">
-                        <option>Seleccionar Canal</option>
-                        <option>Telefono</option>
-                        <option>Twitter</option>
-                        <option>LinkedIn</option>
-                      </select>
-                    </div>
+                  <div class="contact1 labelBody" id="contacto3">
+                    <label for="colFormLabel" class="col-sm-3 col-form-label">Dirección</label>
+                    <input type="text" id="direccion" class="form-control" placeholder="Dirección">
+                  </div>
+
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-3 col-form-label">Interés</label>
+                    <select class="form-control ">
+                      <option>0%</option>
+                      <option>25%</option>
+                      <option>50%</option>
+                      <option>75%</option>
+                      <option>100%</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="modal3">
+
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-12 col-form-label canal">Canal de Contacto</label>
+                    <select class="form-control">
+                      <option>Seleccionar Canal</option>
+                      <option>Telefono</option>
+                      <option>Twitter</option>
+                      <option>LinkedIn</option>
+                    </select>
+                  </div>
 
                   <div class="contact1 labelBody cuentaUsuario" id="contacto2">
                     <label for="colFormLabel" class="col-sm-12 col-form-label">Cuenta de Usuario</label>
                     <input type="text" id="cuentaUsuario" class="form-control colorInput" placeholder="@ejemplo">
                   </div>
-             
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
-                      <select class="form-control colorInput">
-                        <option>Sin Preferencias</option>
-                        <option>canal Favorito</option>
-                        <option>No Molestar</option>     
-                      </select>
-                    </div>
-                    
+
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
+                    <select class="form-control colorInput">
+                      <option>Sin Preferencias</option>
+                      <option>canal Favorito</option>
+                      <option>No Molestar</option>
+                    </select>
                   </div>
 
-                  <div class="modal3">
+                </div>
 
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-12 col-form-label canal">Canal de Contacto</label>
-                      <select class="form-control">
-                        <option>Seleccionar Canal</option>
-                        <option>Telefono</option>
-                        <option>Twitter</option>
-                        <option>LinkedIn</option>      
-                      </select>
-                    </div>
+                <div class="modal3">
 
-                    <div class="contact1 labelBody cuentaUsuario" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-12 col-form-label">Cuenta de Usuario</label>
-                      <input type="text" id="cuentaUsuario" class="form-control colorInput" placeholder="@ejemplo">
-                    </div>
-
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
-                      <select class="form-control colorInput">
-                        <option>Sin Preferencias</option>
-                        <option>canal Favorito</option>
-                        <option>No Molestar</option>     
-                      </select>
-                    </div>
-
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-12 col-form-label canal">Canal de Contacto</label>
+                    <select class="form-control">
+                      <option>Seleccionar Canal</option>
+                      <option>Telefono</option>
+                      <option>Twitter</option>
+                      <option>LinkedIn</option>
+                    </select>
                   </div>
 
-
-
-                  <div class="modal3">
-
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-12 col-form-label canal">Canal de Contacto</label>
-                      <select class="form-control">
-                        <option>Seleccionar Canal</option>
-                        <option>Telefono</option>
-                        <option>Twitter</option>
-                        <option>LinkedIn</option>    
-                      </select>
-                    </div>
-
-                    <div class="contact1 labelBody cuentaUsuario" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-12 col-form-label">Cuenta de Usuario</label>
-                      <input type="text" id="cuentaUsuario" class="form-control colorInput" placeholder="@ejemplo">
-                    </div>
-
-                    <div class="contact1 labelBody" id="contacto2">
-                      <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
-                      <select class="form-control colorInput">
-                        <option>Sin Preferencias</option>
-                        <option>canal Favorito</option>
-                        <option>No Molestar</option>     
-                      </select>
-                    </div>
-
+                  <div class="contact1 labelBody cuentaUsuario" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-12 col-form-label">Cuenta de Usuario</label>
+                    <input type="text" id="cuentaUsuario" class="form-control colorInput" placeholder="@ejemplo">
                   </div>
 
-                </form>
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
+                    <select class="form-control colorInput">
+                      <option>Sin Preferencias</option>
+                      <option>canal Favorito</option>
+                      <option>No Molestar</option>
+                    </select>
+                  </div>
+
+                </div>
+
+
+
+                <div class="modal3">
+
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-12 col-form-label canal">Canal de Contacto</label>
+                    <select class="form-control">
+                      <option>Seleccionar Canal</option>
+                      <option>Telefono</option>
+                      <option>Twitter</option>
+                      <option>LinkedIn</option>
+                    </select>
+                  </div>
+
+                  <div class="contact1 labelBody cuentaUsuario" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-12 col-form-label">Cuenta de Usuario</label>
+                    <input type="text" id="cuentaUsuario" class="form-control colorInput" placeholder="@ejemplo">
+                  </div>
+
+                  <div class="contact1 labelBody" id="contacto2">
+                    <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
+                    <select class="form-control colorInput">
+                      <option>Sin Preferencias</option>
+                      <option>canal Favorito</option>
+                      <option>No Molestar</option>
+                    </select>
+                  </div>
+
+                </div>
+
+              </form>
+            </div>
+            <div class="modal-footer moverFooter">
+              <div class="  ">
+                <button class=" btn-group  form-control colorInput3">Cancelar</button>
               </div>
-              <div class="modal-footer moverFooter">
-                <div class="  ">
-                  <button class=" btn-group  form-control colorInput3">Cancelar</button>
-                </div>
-  
-                <div >
-                  <button class=" btn-group  form-control colorInput2"> Guardar Contacto </button>
-                </div>
+
+              <div>
+                <button class=" btn-group  form-control colorInput2"> Guardar Contacto </button>
+              </div>
             </div>
-            
-        
-              
-            </div>
+
+
 
           </div>
 
@@ -300,8 +290,10 @@
 
       </div>
 
-    </section>
+    </div>
+
   </section>
+
 
 
 
@@ -321,10 +313,6 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>
-  <!--
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    -->
 
   <!--script tabla  -->
 
@@ -344,6 +332,15 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
   <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
+
+
+  <script src="/front/public/js/funciones.js"></script>
+  <script src="/front/public/js/regiones.js"></script>
+  <script src="/front/public/js/paises.js"></script>
+  <script src="/front/public/js/ciudades.js"></script>
+
+
+
 
 
 
@@ -388,7 +385,7 @@
     function initTable() {
       $table.bootstrapTable('destroy').bootstrapTable({
         url: 'http://127.0.0.1:3000/api/usuarios/all',
-        search: true,
+        
         pagination: true,
         height: 550,
         columns: [
@@ -397,6 +394,10 @@
             field: 'id',
             align: 'center',
             valign: 'middle'
+          }, {
+            field: 'Check',
+            title: 'check',
+            align: 'center'
           }, {
             field: 'Contactos',
             title: 'Contactos',
@@ -412,10 +413,6 @@
           }, {
             field: 'Cargo',
             title: 'Cargo',
-            align: 'center'
-          }, {
-            field: 'Canal Preferido',
-            title: 'Canal Preferido',
             align: 'center'
           }, {
             field: 'Interés',

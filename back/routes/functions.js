@@ -385,19 +385,55 @@ let validarCiudad= (req, res, next)=>{
     }
 }
 
+//***********************CONTACTOS***************************** */
+
+
+ //funcion para agregar contactos
+
+ async function nuevo_contacto(contactos) {
+    let data = Object.values(contactos)
+    let resultado = await sequelize.query('INSERT INTO contactos ( nombre, apellido, cargo, email, id_companias, id_region, id_pais, id_ciudad,	direccion, interes,	canal, cuenta, preferencias) VALUES (?)', {
+        replacements: [data]
+    })
+    return resultado;
+}
 
 
 
+//funcion buscar 1 contacto
+
+async function consulta_contacto(contactos){
+    let resultadoContacto = await sequelize.query('SELECT * FROM contactos WHERE email = ?',{
+        type: sequelize.QueryTypes.SELECT,
+        replacements:[contactos]
+       
+    })
+    return resultadoContacto
+}
 
 
 
+// middlware para validar el ingreso de usuarios repetidos
 
-
-
-
-
-
-
+let validarContacto = (req, res, next)=>{
+    console.log('ingreso a validar contacto');
+      let email = req.body.email;
+     
+      if(email){
+          consulta_contacto(email)
+          .then(proyects => {
+              let contactoNuevo = proyects.find(Contacto => Contacto.email == email)
+              if (!contactoNuevo) {
+                  return next();
+              } else if (contactoNuevo) {
+                  res.status(409).send({
+                      status: 409,
+                      mensaje: 'El contacto ya existe'
+                  })
+              }
+          }).catch(err => console.log(err));
+      }
+  }
 
 
 module.exports = {
@@ -423,7 +459,9 @@ module.exports = {
     validarPais,
     nueva_ciudad,
     consulta_ciudad,
-    validarCiudad
+    validarCiudad,
+    nuevo_contacto,
+    validarContacto
     
 
 }

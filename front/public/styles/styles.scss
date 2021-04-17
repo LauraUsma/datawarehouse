@@ -36,6 +36,13 @@ body {
 
 }
 
+
+.titulo1 {
+    padding: 30px;
+    font-family: $font2;
+
+}
+
 .titleCompany{
     padding-top: 30px;
     font-family: $font2;
@@ -57,8 +64,26 @@ body {
 
 }
 
-.desplegable {
-    margin-left: 650px;
+
+
+.bnAgregar{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    
+}
+
+.inputSearch{
+    width: 210px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .modal2{

@@ -38,6 +38,13 @@ router.use('/ciudades', apiCiudades);
 const apiRegiones= require('./api/regiones');
 router.use('/regiones', apiRegiones);
 
+//ruta para contactos
+
+const apiContactos= require('./api/contactos');
+router.use('/contactos', apiContactos);
+
+
+
 
 
 
