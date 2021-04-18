@@ -135,11 +135,11 @@ body {
 }
 
 #contacto1 {
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
 #contacto2 {
-  margin-left: 105px;
+  margin-left: 90px;
 }
 
 #contacto3 {
@@ -283,5 +283,30 @@ body {
 
 .seccionCompanias {
   margin-left: 1px;
+}
+
+.close {
+  color: whitesmoke;
+}
+
+.close:hover {
+  color: white;
+  text-decoration: none;
+  opacity: .75;
+}
+
+.selectRegion {
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
 /*# sourceMappingURL=styles.css.map */
