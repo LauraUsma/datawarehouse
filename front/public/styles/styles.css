@@ -309,4 +309,9 @@ body {
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
+
+.btnAgregarRegion {
+  display: block;
+  margin: auto;
+}
 /*# sourceMappingURL=styles.css.map */
