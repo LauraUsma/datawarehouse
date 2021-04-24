@@ -76,7 +76,7 @@
 
 
 
-  <section class="">
+  <section>
 
 
     <div class="container" id="container">
@@ -144,7 +144,7 @@
             <!--*****************modal body************************-->
 
             <div class="modal-body moverBody">
-              <form class="form-group contenedorContactos ">
+              <form class="form-group contenedorContactos " id="formAgregarContactos">
 
                 <div class="modal3">
 
@@ -190,7 +190,7 @@
                   </div>
                 </div>
 
-                <div class="modal3">
+                <div class="modal3" id="canalContactos">
 
                   <div class="contact1 labelBody" id="contacto2">
                     <label for="colFormLabel" class="col-sm-12 col-form-label canal">Canal de Contacto</label>
@@ -216,14 +216,18 @@
                     </select>
                   </div>
 
+                  
+  
+
                 </div>
-                 
-                <div class=" contact1 agregarMas ">
-                  <button class=" btn-group  form-control">
+
+                <div class=" contact1 agregarMas " id="nuevoCanal">
+                  <button class=" btn-group  form-control" id="agregarCanal">
                     + Agregar Canal
                   </button>
                 </div>
-
+                 
+              
 
                 <!--
 
@@ -352,6 +356,7 @@
 
   <script src="/front/public/js/funciones.js"></script>
 <script src="/front/public/js/contactos.js"></script>
+<script src="/front/public/js/formcontactos.js"></script>
 
 
 

@@ -35,8 +35,10 @@ router.post('/', validarPais, (req, res) => {
 
 //ruta put para actualizar paises
 
-router.put('/', (req, res) => {
-    let{ id, nombre}=req.body;
+router.put('/:id', (req, res) => {
+    let{ id}=req.params;
+    let{ nombre}=req.body;
+
     
        sequelize.query(`UPDATE paises SET nombre= ? WHERE id = ?`, {
                replacements: [nombre, id]
@@ -53,15 +55,27 @@ router.put('/', (req, res) => {
 // rut get para mostrar paises
 
 async function obtenerTodosLosPaises() {
+    var queryString = '';
 
-    let paises = await sequelize.query('SELECT * FROM paises', { type: sequelize.QueryTypes.SELECT})
+    console.log('ENTRE');
+    queryString = queryString + ' SELECT ps.id,  ps.nombre as pais, rg.nombre as region';
+    queryString = queryString + ' from paises ps join regiones rg on (ps.region_id=rg.id) ';
+
+   
+
+    let paises = await sequelize.query(queryString,
+     { type: sequelize.QueryTypes.SELECT})
     return paises;
  }
 
  router.get('/', async(req, res) => {
+  
+
 
     let pais = await obtenerTodosLosPaises();
+  
     return res.status(200).json({pais})
+   
 })
 
 
@@ -79,8 +93,8 @@ router.get('/', (req , res)=>{
  
 // ruta delete para eliminar regiones
 
-router.delete('/',(req,res)=>{
-    let{ id}=req.body;
+router.delete('/:id',(req,res)=>{
+    let{ id}=req.params;
 
     sequelize.query(`DELETE FROM paises WHERE id=?`,{
         replacements:[id]

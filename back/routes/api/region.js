@@ -36,8 +36,9 @@ router.post('/', validarRegion, (req, res) => {
 
 //ruta put para actualizar regiones
 
-router.put('/', (req, res) => {
-    let{ id, nombre}=req.body;
+router.put('/:id', (req, res) => {
+    let{ id}=req.params;
+    let {nombre}=req.body;
     
        sequelize.query(`UPDATE regiones SET nombre= ? WHERE id = ?`, {
                replacements: [nombre, id]
@@ -85,15 +86,15 @@ router.get('/', (req , res)=>{
      .then(function (regiones){
          console.log(regiones);
          res.send(regiones);
-       return res.status(200).json({regiones});
+      // return res.status(200).json({regiones});
      }).catch(err =>console.error(err));
  });
  
  
 // ruta delete para eliminar regiones
 
-router.delete('/',(req,res)=>{
-    let{ id}=req.body;
+router.delete('/:id',(req,res)=>{
+    let{ id}=req.params;
 
     sequelize.query(`DELETE FROM regiones WHERE id=?`,{
         replacements:[id]
@@ -104,12 +105,7 @@ router.delete('/',(req,res)=>{
     }))
     .catch(err=> console.log(err));
 })
-   
-
-
- 
-   
-
+  
 
 
 

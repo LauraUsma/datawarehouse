@@ -97,7 +97,7 @@ body {
 
 .modal3{
     display: flex;
-    width: 100%;  
+    
   }
 
   .modal4{
@@ -121,8 +121,17 @@ body {
     
 }
 
+.agregarMas{
+    padding-top: 35px;
+    padding-left: 25px;
+    width: fit-content;
+    margin-left: 75px;
+     
+  }
 
 .contenedorContactos{
+    display: flex;
+    flex-wrap: wrap;
     margin-left: 20px;
 }
 
@@ -141,7 +150,7 @@ body {
 }
 
 #contacto2{
-    margin-left: 90px;
+    margin-left: 72px;
 }
 
 #contacto3{
@@ -323,4 +332,18 @@ display: none;
     display: block;
     margin: auto;
     
+}
+
+.otraRegion{
+    margin: auto;
+}
+.nuevoBtn{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+table thead{
+    background-color: #1d72c2;
+    color: white;
 }
