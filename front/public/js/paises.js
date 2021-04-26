@@ -6,7 +6,7 @@ let resultados2 ='';
 const form2 = document.getElementById('formulario2')
 const regionPais = document.getElementById('regionPais')
 let opcion2 =''
-let region_id = document.getElementById('seleccionaRegion');
+let inputRegion = document.getElementById('seleccionaRegion');
 
 
 let btnCrearPais= document.getElementById('btnCrearPais');
@@ -24,7 +24,10 @@ btnCambiarPais.addEventListener('click',()=>{
 let mostarPaises =document.getElementById('mostarPaises');
 mostarPaises.addEventListener('click', ()=>{
     
-    //document.getElementById('container_1').style.display='block';
+    document.getElementById('container_2').style.display='block';
+    document.getElementById('container_1').style.display='none';
+    document.getElementById('container_3').style.display='none';
+ 
  
 },false)
 
@@ -118,7 +121,7 @@ form2.addEventListener('submit', (e)=>{
 
         let bodyEnviar ={
             nombre: regionPais.value,
-            region_id: region_id.value
+            region_id: inputRegion.value
         }
 
         let fetchParams={

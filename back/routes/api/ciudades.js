@@ -35,8 +35,9 @@ router.post('/', validarCiudad, (req, res) => {
 
 //ruta put para actualizar ciudades
 
-router.put('/', (req, res) => {
-    let{ id, nombre}=req.body;
+router.put('/:id', (req, res) => {
+    let{ id}=req.params;
+    let{ nombre}=req.body;
     
        sequelize.query(`UPDATE ciudades SET nombre= ? WHERE id = ?`, {
                replacements: [nombre, id]
@@ -52,20 +53,37 @@ router.put('/', (req, res) => {
 
 // rut get para mostrar ciudades
 
-router.get('/', (req , res)=>{
+async function obtenerTodasCIudades() {
+    var queryString = '';
 
-    sequelize.query('SELECT * FROM ciudades', {type:sequelize.QueryTypes.SELECT})
+
+    queryString = queryString + ' SELECT cd.id,  cd.nombre as ciudad, ps.nombre as pais';
+    queryString = queryString + ' from ciudades cd join paises ps on (cd.pais_id=ps.id) ';
+
+   
+
+    let ciudad = await sequelize.query(queryString,
+     { type: sequelize.QueryTypes.SELECT})
+    return ciudad;
+ }
+
+router.get('/', async(req , res)=>{
+
+    let ciudades = await obtenerTodasCIudades();
+  
+    return res.status(200).json({ciudades})
+    /*sequelize.query('SELECT * FROM ciudades', {type:sequelize.QueryTypes.SELECT})
      .then(function (ciudades){
          console.log(ciudades);
          res.send(ciudades);
-     }).catch(err =>console.error(err));
+     }).catch(err =>console.error(err));*/
  });
  
  
 // ruta delete para eliminar ciudades
 
-router.delete('/',(req,res)=>{
-    let{ id}=req.body;
+router.delete('/:id',(req,res)=>{
+    let{ id}=req.params;
 
     sequelize.query(`DELETE FROM ciudades WHERE id=?`,{
         replacements:[id]

@@ -22,6 +22,8 @@ let mostrarTabla =document.getElementById('mostarTabla');
 mostrarTabla.addEventListener('click', ()=>{
     
     document.getElementById('container_1').style.display='block';
+    document.getElementById('container_2').style.display='none';
+    document.getElementById('container_3').style.display='none';
  
 },false)
 

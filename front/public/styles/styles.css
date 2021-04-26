@@ -107,6 +107,13 @@ body {
   width: 100%;
 }
 
+.modal5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 90px;
+}
+
 .contenedor {
   border: 3px solid #0683f9;
   z-index: 1;
@@ -343,5 +350,25 @@ body {
 table thead {
   background-color: #1d72c2;
   color: white;
+}
+
+.regionLabel {
+  text-align: center;
+}
+
+.inputRegion {
+  margin-left: 70px;
+}
+
+.regionCrear {
+  margin-left: 100px;
+}
+
+.paisCrear {
+  margin-left: 35px;
+}
+
+.ciudadCrear {
+  margin-left: 78px;
 }
 /*# sourceMappingURL=styles.css.map */
