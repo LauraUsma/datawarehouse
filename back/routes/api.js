@@ -44,6 +44,10 @@ const apiContactos= require('./api/contactos');
 router.use('/contactos', apiContactos);
 
 
+//ruta para canales
+
+const apiCanales = require('./api/canales');
+router.use('/canales', apiCanales);
 
 
 

@@ -23,7 +23,7 @@ const{
 
 
 //***************ruta post********* */
-
+/*
 router.post('/',validarContacto, (req, res) => {
 
     nuevo_contacto(req.body)
@@ -32,11 +32,41 @@ router.post('/',validarContacto, (req, res) => {
             mensaje: ' Contacto creado con exito'
         })).catch(err => console.log(err));
 })
+*/
+
+async function guardar_canales(listado_canales, contactoId){
+    let data = Object.values(listado_canales)
+
+for (var i=0; i<data.length; i++) {
+    let elemento_n = data[i];
+    let resultado = await sequelize.query('INSERT INTO contactosxcanales ( id_contacto, id_canal,  cuenta_usuario, preferencia) VALUES (?,?,?,?) ', {
+        replacements: [ contactoId, elemento_n, elemento_n, elemento_n] //falta recuperar los valores que se enviaron por el nombre
+    })
+    return resultado;
+}
+    
+
+
+}
+
+router.post('/', (req, res) => {
+    let{ bodyaEnviar}=req.params;
+    //let {canales_asociados}=req.params
+
+    let id_contacto = nuevo_contacto(bodyaEnviar);
+        guardar_canales(bodyaEnviar,id_contacto)
+        .then(proyects => res.status(200).send({
+            status: 200,
+            mensaje: ' Contacto creado con exito'
+        })).catch(err => console.log(err));
+})
+;
+
 
 
 
 //*********************ruta put*************************** */
-
+/*
 async function actualizarContactos(data, id) {
     const {nombre, apellido, cargo, email, id_companias, id_region, id_pais, id_ciudad,	direccion, interes,	canal, cuenta, preferencias}=data
     let contactos = await  sequelize.query('UPDATE contactos SET nombre = :nombre, apellido= :apellido, cargo = :cargo,email= :email, id_companias= :id_companias, id_region = :id_region, id_pais= :id_pais, id_ciudad= :id_ciudad, direccion= :direccion, interes= :interes,	canal= :canal, cuenta= :cuenta, preferencias=:preferencias WHERE id= :id',
@@ -58,9 +88,9 @@ router.put('/:id', (req, res) => {
     })
    })
 
-
+*/
 //*********ruta delete****************** */
-
+/*
 router.delete('/', (req, res) => {
     let{ id}=req.body;
     
@@ -74,7 +104,7 @@ router.delete('/', (req, res) => {
            .catch(err => console.log(err));
    })
    
-
+*/
 
 
 

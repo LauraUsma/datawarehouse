@@ -79,17 +79,6 @@ async function obtenerTodosLosPaises() {
 })
 
 
-
-/*
-router.get('/', (req , res)=>{
-
-    sequelize.query('SELECT * FROM paises', {type:sequelize.QueryTypes.SELECT})
-     .then(function (paises){
-         console.log(paises);
-         res.send(paises);
-     }).catch(err =>console.error(err));
- });
- */
  
 // ruta delete para eliminar regiones
 
@@ -106,7 +95,32 @@ router.delete('/:id',(req,res)=>{
     .catch(err=> console.log(err));
 })
    
+//***************obtener paises segun la region**************** */
 
+async function obtenerTodosLosPaisesXRegion(region_id) {
+    var queryString = '';
+
+    console.log('ENTRE');
+    queryString = queryString + ' SELECT ps.id,  ps.nombre as pais';
+    queryString = queryString + ' from paises ps where  region_id = ? ';
+
+   
+
+    let paises = await sequelize.query(queryString,
+     {  type: sequelize.QueryTypes.SELECT,
+        replacements:[region_id]})
+    return paises;
+ }
+
+ router.get('/:region_id', async(req, res) => {
+    let{ region_id}=req.params;
+
+
+    let paises = await obtenerTodosLosPaisesXRegion(region_id);
+  
+    return res.status(200).json({paises})
+   
+})
 
 
 

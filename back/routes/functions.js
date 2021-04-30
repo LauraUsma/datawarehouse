@@ -392,8 +392,8 @@ let validarCiudad= (req, res, next)=>{
 
  async function nuevo_contacto(contactos) {
     let data = Object.values(contactos)
-    let resultado = await sequelize.query('INSERT INTO contactos ( nombre, apellido, cargo, email, id_companias, id_region, id_pais, id_ciudad,	direccion, interes,	canal, cuenta, preferencias) VALUES (?)', {
-        replacements: [data]
+    let resultado = await sequelize.query('INSERT INTO contactos ( nombre, apellido, cargo, email, id_companias, id_region, id_pais, id_ciudad,	direccion, interes) VALUES (?,?,?,?,?,?,?,?,?,?) ', {
+        replacements: [data.nombre, data.apellido, data.cargo, data.email, data.id_companias, data.id_region, data.id_pais, data.id_ciudad,	data.direccion, data.interes]
     })
     return resultado;
 }
@@ -403,7 +403,7 @@ let validarCiudad= (req, res, next)=>{
 //funcion buscar 1 contacto
 
 async function consulta_contacto(contactos){
-    let resultadoContacto = await sequelize.query('SELECT * FROM contactos WHERE email = ?',{
+    let resultadoContacto = await sequelize.query('SELECT * FROM contactosxcanales WHERE email = ?',{
         type: sequelize.QueryTypes.SELECT,
         replacements:[contactos]
        

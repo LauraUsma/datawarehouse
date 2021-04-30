@@ -1,11 +1,12 @@
 let btnAgregar = document.getElementById('agregarCanal');
-let formContactos= document.getElementById('moverBody')
+let formContactos= document.getElementById('formAgregarContactos')
 
 let optionsContactos =["Seleccionar Canal","Telefono", "Twitter", "LinkedIn"]
 let opcionesPreferencia = ["Sin Preferencia","canal Favorito", "No Molestar"]
 
 
 btnAgregar.addEventListener('click', ()=>{
+   
     let divModal = document.createElement('div')
     let divContacto = document.createElement('div')
     let divCuenta = document.createElement('div')
@@ -32,17 +33,15 @@ btnAgregar.addEventListener('click', ()=>{
     
     divContacto.appendChild(labelContacto)
     divContacto.appendChild(selectContacto)
-    divContacto.setAttribute('class','contact1')
+    divContacto.setAttribute('class','contact2')
     divContacto.setAttribute('class', 'labelBody')
     divModal.setAttribute('class', 'modal5')
 
-    divCuenta.setAttribute('class','contact1 labelBody cuentaUsuario')
-    divCuenta.setAttribute('id','contacto2')
+    divCuenta.setAttribute('class','contact3 labelBody cuentaUsuario')
     divCuenta.appendChild(labelCuenta)
     divCuenta.appendChild(inputCuenta)
 
-    divPreferencia.setAttribute('class','contact1 labelBody')
-    divPreferencia.setAttribute('id','contacto2')
+    divPreferencia.setAttribute('class','contact3 labelBody')
     divPreferencia.appendChild(labelPreferencia)
     divPreferencia.appendChild(selectPreferencia)
 
@@ -73,6 +72,7 @@ btnAgregar.addEventListener('click', ()=>{
     formContactos.appendChild(divModal)
     
     
-
+    return false;
 
 })
+

@@ -111,7 +111,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 90px;
+  margin-left: 72px;
 }
 
 .contenedor {
@@ -150,20 +150,16 @@ body {
   display: flex;
 }
 
-.contac1 {
-  display: block;
-}
-
-#contacto1 {
+.contact1 {
   margin-left: 40px;
 }
 
-#contacto2 {
+.contact2 {
   margin-left: 72px;
 }
 
-#contacto3 {
-  margin-left: 80px;
+.contact3 {
+  margin-left: 145px;
 }
 
 .cuentaUsuario {

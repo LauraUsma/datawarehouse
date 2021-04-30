@@ -32,15 +32,32 @@ btnguardarContacto.addEventListener('click', (e)=>{
     let interes = document.getElementById('interes');
     console.log(interes.value);
 
-    let canal = document.getElementById('canal');
-    console.log(canal.value);
 
-    let cuenta = document.getElementById('cuentaUsuario');
-    console.log(cuenta.value);
+    let array_canales = []
 
-    let preferencias = document.getElementById('preferencias');
-    console.log(preferencias.value);
+    let canales = document.getElementsByClassName('canales_contacto').length;
+    console.log(canales.value)
 
+    for(let i = 0; i < canales.length; i++){
+        let canal = document.getElementById('canal').value;
+        console.log(canal.value);
+    
+        let cuenta = document.getElementById('cuentaUsuario').value;
+        console.log(cuenta.value);
+    
+        let preferencias = document.getElementById('preferencias').value;
+        console.log(preferencias.value);
+
+
+        let resultado_canal = {
+            canal_id:canal.value,
+            cuenta_usuario: cuenta.value,
+            preferencia:preferencias.value
+        }
+
+        array_canales.add(resultado_canal)
+    
+    }
 
 
 
@@ -55,10 +72,7 @@ btnguardarContacto.addEventListener('click', (e)=>{
         id_ciudad:ciudad.value,
         direccion:direccion.value,
         interes:interes.value,
-        canal: canal.value,
-        cuenta:cuenta.value,
-        preferencias:preferencias.value
-
+        canales_asociados :array_canales.value
     };
     let id, method = '';
     if(document.getElementById('nombre').dataset.id){
@@ -79,6 +93,13 @@ btnguardarContacto.addEventListener('click', (e)=>{
 
 },false);
 
+/*
+canales.firstElementChild.lastElementChild.value.forEach(canales=>{
+    const element=document.createTextNode(canales.canal)
+    console.log(element)
+})
+
+*/
 
 //**********cargar companias****************** */
 
@@ -99,66 +120,110 @@ async function loadCompanias() {
 loadCompanias();
 
 
+//**********cargar ciudades******************* */
+
+async function loadCiudades(){
+    const ciudad = document.getElementById('ciudad');
+    let pais_selected= document.getElementById('pais').value;
+    console.log(pais_selected);
+
+    if(pais_selected != 'Seleccionar País'){
+        ciudad.innerHTML="";
+        const resultado = await apiWarehouse ('api/ciudades/' + pais_selected, 'GET', '', '');
+        console.log(resultado);
+        
+        resultado.rows.ciudades.forEach(row=> {
+            const elemento = document.createElement('option');
+            const textNode =document.createTextNode(row.ciudad);
+            elemento.appendChild(textNode);
+            elemento.setAttribute('value', row.id);
+            ciudad.add(elemento);
+            
+        });
+    
+    }
+    
+}
+
+
+loadCiudades()
+
 
 //**********cargar regiones****************** */
 
 async function loadRegiones() {
     const selected = document.getElementById('region');
-    const resultado = await apiWarehouse('api/regiones', 'GET','','');
+    const resultado = await apiWarehouse('api/region', 'GET','','');
     console.log(resultado);
 
     resultado.rows.forEach(row=>{
-    const elemento=document.createElement('option');
-    const textNode = document.createTextNode(row.region);
-    elemento.appendChild(textNode);
-    elemento.setAttribute('value', row.id);
-    selected.add(elemento);
-});
-
-}
-loadRegiones();
-
-
-
-
-
-//**********cargar paises****************** */
-
-async function loadPaises() {
-    const selected = document.getElementById('pais');
-    const resultado = await apiWarehouse('api/paises', 'GET','','');
-    console.log(resultado);
-
-    resultado.rows.pais.forEach(row=>{
     const elemento=document.createElement('option');
     const textNode = document.createTextNode(row.nombre);
     elemento.appendChild(textNode);
     elemento.setAttribute('value', row.id);
     selected.add(elemento);
 });
-
+selected.addEventListener('change', (e)=>{
+    loadPaises();
+    console.log("paises");
+});
 }
-loadPaises();
+loadRegiones();
 
 
-//**********cargar ciudades******************* */
+//**********cargar paises****************** */
 
-async function loadCiudades(){
-    const ciudad = document.getElementById('ciudad');
-    const resultado = await apiWarehouse ('api/ciudades', 'GET', '', '');
+async function loadPaises() {
+    const selected = document.getElementById('pais');
+    let region_selected = document.getElementById('region').value;
+    console.log("region_selected");
+
+    
+    if (region_selected != 'Selecciona Región') {
+        selected.innerHTML="";
+        const resultado = await apiWarehouse('api/paises/'+ region_selected , 'GET','','');
+        console.log(resultado);
+        resultado.rows.paises.forEach(row=>{
+            const elemento=document.createElement('option');
+            const textNode = document.createTextNode(row.pais);
+            elemento.appendChild(textNode);
+            elemento.setAttribute('value', row.id);
+            selected.add(elemento);
+
+      
+        })
+      
+    selected.addEventListener('change', (e)=>{
+        loadCiudades();
+        console.log("ciudades");
+    });
+  
+    }
+  
+   
+}
+
+
+
+
+//**********cargar canales******************* */
+
+async function loadCanales(){
+    const canal = document.getElementById('canal');
+    const resultado = await apiWarehouse ('api/canales', 'GET', '', '');
     console.log(resultado);
-    resultado.rows.forEach(row=> {
+    resultado.rows.canales.forEach(row=> {
         const elemento = document.createElement('option');
-        const textNode =document.createTextNode(row.nombre);
+        const textNode =document.createTextNode(row.canal);
         elemento.appendChild(textNode);
         elemento.setAttribute('value', row.id);
-        ciudad.add(elemento);
+        canal.add(elemento);
         
     });
     
 }
 
-loadCiudades();
+loadCanales();
 
 
 

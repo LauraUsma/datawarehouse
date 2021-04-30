@@ -72,11 +72,6 @@ router.get('/', async(req , res)=>{
     let ciudades = await obtenerTodasCIudades();
   
     return res.status(200).json({ciudades})
-    /*sequelize.query('SELECT * FROM ciudades', {type:sequelize.QueryTypes.SELECT})
-     .then(function (ciudades){
-         console.log(ciudades);
-         res.send(ciudades);
-     }).catch(err =>console.error(err));*/
  });
  
  
@@ -94,16 +89,40 @@ router.delete('/:id',(req,res)=>{
     }))
     .catch(err=> console.log(err));
 })
+
+
+//***************obtener ciudad segun el pais**************** */
+
+async function obtenerTodosLasCiudadesXpais(pais_id) {
+    var queryString = '';
+
+    console.log('ENTRE');
+    queryString = queryString + ' SELECT cd.id,  cd.nombre as ciudad';
+    queryString = queryString + ' from ciudades cd where  pais_id = ? ';
+
    
 
+    let ciudad = await sequelize.query(queryString,
+     {  type: sequelize.QueryTypes.SELECT,
+        replacements:[pais_id]})
+    return ciudad;
+ }
+
+ router.get('/:pais_id', async(req, res) => {
+    let{ pais_id}=req.params;
 
 
-
- 
+    let ciudades = await obtenerTodosLasCiudadesXpais(pais_id);
+  
+    return res.status(200).json({ciudades})
    
+})
 
 
 
 
 
 module.exports= router;  
+
+
+ 
