@@ -48,9 +48,9 @@ async function loadCiudades(){
     const ciudad = document.getElementById('ciudadCompania');
     const resultado = await apiWarehouse ('api/ciudades', 'GET', '', '');
     console.log(resultado);
-    resultado.rows.forEach(row=> {
+    resultado.rows.ciudades.forEach(row=> {
         const elemento = document.createElement('option');
-        const textNode =document.createTextNode(row.nombre);
+        const textNode =document.createTextNode(row.ciudad);
         elemento.appendChild(textNode);
         elemento.setAttribute('value', row.id);
         ciudad.add(elemento);

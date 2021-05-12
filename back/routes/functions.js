@@ -392,25 +392,23 @@ let validarCiudad= (req, res, next)=>{
 
  async function nuevo_contacto(contactos) {
     let data = Object.values(contactos)
-    let resultado = await sequelize.query('INSERT INTO contactos ( nombre, apellido, cargo, email, id_companias, id_region, id_pais, id_ciudad,	direccion, interes) VALUES (?,?,?,?,?,?,?,?,?,?) ', {
-        replacements: [data.nombre, data.apellido, data.cargo, data.email, data.id_companias, data.id_region, data.id_pais, data.id_ciudad,	data.direccion, data.interes]
+    let resultado = await sequelize.query('INSERT INTO contactos ( nombre, apellido, cargo, email, id_compania, id_region, id_pais, id_ciudad,	direccion, interes, id_canal, cuenta, preferencia, id_canal2, cuenta2, preferencia2, id_canal3,	cuenta3, preferencia3) VALUES (?) ', {
+        replacements: [data]
     })
     return resultado;
 }
 
 
-
 //funcion buscar 1 contacto
 
 async function consulta_contacto(contactos){
-    let resultadoContacto = await sequelize.query('SELECT * FROM contactosxcanales WHERE email = ?',{
+    let resultadoContacto = await sequelize.query('SELECT * FROM contactos WHERE email = ?',{
         type: sequelize.QueryTypes.SELECT,
         replacements:[contactos]
        
     })
     return resultadoContacto
 }
-
 
 
 // middlware para validar el ingreso de usuarios repetidos
@@ -435,6 +433,14 @@ let validarContacto = (req, res, next)=>{
       }
   }
 
+  //***********************canales********************* */
+  async function nuevo_canal(canales) {
+    let data = Object.values(canales)
+    let resultado = await sequelize.query('INSERT INTO canales (canal) VALUES (?) ', {
+        replacements: [data]
+    })
+    return resultado;
+}
 
 module.exports = {
 
@@ -461,7 +467,8 @@ module.exports = {
     consulta_ciudad,
     validarCiudad,
     nuevo_contacto,
-    validarContacto
+    validarContacto,
+    nuevo_canal
     
 
 }

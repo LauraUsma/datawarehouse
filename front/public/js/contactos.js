@@ -1,5 +1,5 @@
-let btnguardarContacto = document.getElementById('guardarContacto');
-
+//let btnguardarContacto = document.getElementById('guardarContacto');
+/*
 btnguardarContacto.addEventListener('click', (e)=>{
     let nombre = document.getElementById('nombre');
     console.log(nombre.value);
@@ -32,32 +32,33 @@ btnguardarContacto.addEventListener('click', (e)=>{
     let interes = document.getElementById('interes');
     console.log(interes.value);
 
+    let canal = document.getElementById('canal');
+    console.log(canal.value);
 
-    let array_canales = []
+    let cuenta = document.getElementById('cuentaUsuario');
+    console.log(cuenta.value);
 
-    let canales = document.getElementsByClassName('canales_contacto').length;
-    console.log(canales.value)
+    let preferencias = document.getElementById('preferencias');
+    console.log(preferencias.value);
 
-    for(let i = 0; i < canales.length; i++){
-        let canal = document.getElementById('canal').value;
-        console.log(canal.value);
-    
-        let cuenta = document.getElementById('cuentaUsuario').value;
-        console.log(cuenta.value);
-    
-        let preferencias = document.getElementById('preferencias').value;
-        console.log(preferencias.value);
+    let canal2 = document.getElementById('canal2');
+    console.log(canal2.value);
 
+    let cuenta2 = document.getElementById('cuentaUsuario2');
+    console.log(cuenta2.value);
 
-        let resultado_canal = {
-            canal_id:canal.value,
-            cuenta_usuario: cuenta.value,
-            preferencia:preferencias.value
-        }
+    let preferencias2 = document.getElementById('preferencias2');
+    console.log(preferencias2.value);
 
-        array_canales.add(resultado_canal)
-    
-    }
+    let canal3 = document.getElementById('canal3');
+    console.log(canal3.value);
+
+    let cuenta3 = document.getElementById('cuentaUsuario3');
+    console.log(cuenta3.value);
+
+    let preferencias3 = document.getElementById('preferencias3');
+    console.log(preferencias3.value);
+
 
 
 
@@ -72,7 +73,17 @@ btnguardarContacto.addEventListener('click', (e)=>{
         id_ciudad:ciudad.value,
         direccion:direccion.value,
         interes:interes.value,
-        canales_asociados :array_canales.value
+        id_canal:canal.value,
+        cuenta: cuenta.value,
+        preferencia:preferencias.value,
+        id_canal2:canal2.value,
+        cuenta2: cuenta2.value,
+        preferencia2:preferencias2.value,
+        id_canal3:canal3.value,
+        cuenta3: cuenta3.value,
+        preferencia3:preferencias3.value
+
+
     };
     let id, method = '';
     if(document.getElementById('nombre').dataset.id){
@@ -92,12 +103,6 @@ btnguardarContacto.addEventListener('click', (e)=>{
 
 
 },false);
-
-/*
-canales.firstElementChild.lastElementChild.value.forEach(canales=>{
-    const element=document.createTextNode(canales.canal)
-    console.log(element)
-})
 
 */
 
@@ -119,34 +124,6 @@ async function loadCompanias() {
 }
 loadCompanias();
 
-
-//**********cargar ciudades******************* */
-
-async function loadCiudades(){
-    const ciudad = document.getElementById('ciudad');
-    let pais_selected= document.getElementById('pais').value;
-    console.log(pais_selected);
-
-    if(pais_selected != 'Seleccionar País'){
-        ciudad.innerHTML="";
-        const resultado = await apiWarehouse ('api/ciudades/' + pais_selected, 'GET', '', '');
-        console.log(resultado);
-        
-        resultado.rows.ciudades.forEach(row=> {
-            const elemento = document.createElement('option');
-            const textNode =document.createTextNode(row.ciudad);
-            elemento.appendChild(textNode);
-            elemento.setAttribute('value', row.id);
-            ciudad.add(elemento);
-            
-        });
-    
-    }
-    
-}
-
-
-loadCiudades()
 
 
 //**********cargar regiones****************** */
@@ -203,13 +180,46 @@ async function loadPaises() {
    
 }
 
+//**********cargar ciudades******************* */
+
+async function loadCiudades(){
+    const ciudad = document.getElementById('ciudad');
+
+
+
+    let pais_selected= document.getElementById('pais').value;
+    console.log(pais_selected);
+
+    if(pais_selected != 'Seleccionar País'){
+        ciudad.innerHTML="";
+        const resultado = await apiWarehouse ('api/ciudades/' + pais_selected, 'GET', '', '');
+        console.log(resultado);
+        
+        resultado.rows.ciudades.forEach(row=> {
+            const elemento = document.createElement('option');
+            const textNode =document.createTextNode(row.ciudad);
+            elemento.appendChild(textNode);
+            elemento.setAttribute('value', row.id);
+            ciudad.add(elemento);
+           
+            
+        });
+    
+    }
+    
+}
+
+
+loadCiudades()
+
 
 
 
 //**********cargar canales******************* */
 
-async function loadCanales(){
+async function loadCanales1(){
     const canal = document.getElementById('canal');
+
     const resultado = await apiWarehouse ('api/canales', 'GET', '', '');
     console.log(resultado);
     resultado.rows.canales.forEach(row=> {
@@ -218,32 +228,49 @@ async function loadCanales(){
         elemento.appendChild(textNode);
         elemento.setAttribute('value', row.id);
         canal.add(elemento);
-        
+   
     });
     
 }
 
-loadCanales();
+loadCanales1();
 
 
 
-//*****************funcion para eliminar los registros de usuarios****************** */
-function deleteCompanias (id) {
-    let bodyDelete={
-          id:id
-  };
-  let fetchParams = {
-    method:'DELETE',
-    body: JSON.stringify(bodyDelete),
-    headers:{
-      'Content-Type':'application/json',
-      'Authorization': `BEARER ${localStorage.getItem('token')}`
-  
-    }
-  }
-  console.log('id del registro a borrar'+id);
-    fetch('http://127.0.0.1:3000/api/companias', fetchParams)
-    .then(res=> res.json())
-    .then(json=> console.log(json));
-  }
-  
+async function loadCanales2(){
+
+    const canal2 = document.getElementById('canal2');
+    const resultado = await apiWarehouse ('api/canales', 'GET', '', '');
+    console.log(resultado);
+    resultado.rows.canales.forEach(row=> {
+        const elemento = document.createElement('option');
+        const textNode =document.createTextNode(row.canal);
+        elemento.appendChild(textNode);
+        elemento.setAttribute('value', row.id);
+   ;
+        canal2.add(elemento);
+    });
+    
+}
+
+loadCanales2();
+
+async function loadCanales3(){
+
+    const canal3 = document.getElementById('canal3');
+    const resultado = await apiWarehouse ('api/canales', 'GET', '', '');
+    console.log(resultado);
+    resultado.rows.canales.forEach(row=> {
+        const elemento = document.createElement('option');
+        const textNode =document.createTextNode(row.canal);
+        elemento.appendChild(textNode);
+        elemento.setAttribute('value', row.id);
+     
+        canal3.add(elemento);
+    });
+    
+}
+
+loadCanales3();
+
+

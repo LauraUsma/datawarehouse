@@ -162,6 +162,10 @@ body {
   margin-left: 145px;
 }
 
+.seccionCanal {
+  display: block;
+}
+
 .cuentaUsuario {
   width: 175px;
 }
@@ -366,5 +370,15 @@ table thead {
 
 .ciudadCrear {
   margin-left: 78px;
+}
+
+.btnEliminarContacto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */

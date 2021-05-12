@@ -67,6 +67,7 @@ const tablaCiudad= (ciudades)=>{
        
     resultados3 += `
     <tr>
+      
         <td>${ciudad.id}</td>
         <td>${ciudad.ciudad}</td>    
         <td class="text-center"> <a class="edit" href="javascript:void(0)" title="Edit">

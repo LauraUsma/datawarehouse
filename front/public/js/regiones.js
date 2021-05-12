@@ -27,34 +27,14 @@ mostrarTabla.addEventListener('click', ()=>{
  
 },false)
 
-/*btnAgregarRegion.addEventListener('click',(e)=>{
-    let inputRegion = document.getElementById('regionNueva')
-    console.log(inputRegion.value);
-
-    let bodyaEnviar = {
-       nombre: inputRegion.value
-    }
-
-    let id, method = '';
-    if(document.getElementById('regionNueva').dataset.id){
-        id= document.getElementById('regionNueva').dataset.id;
-        method = 'PUT';
-    }else{
-        id='';
-        method= 'POST';
-    }
-
-    apiWarehouse('api/region', 'POST', JSON.stringify(bodyaEnviar), id)
-    .then(resultado => {
-        //console.log(resultado);
-    }).catch (error => console.log(eror));
-},false)
-*/
 //************mostrar regiones************ */
 const mostrar= (regiones)=>{
+    console.log(regiones)
+
    regiones.forEach(region => {
     resultados += `
     <tr>
+
         <td>${region.id}</td>
         <td>${region.nombre}</td>
         <td class="text-center"> <a class="edit" href="javascript:void(0)" title="Edit">

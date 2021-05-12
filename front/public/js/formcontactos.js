@@ -3,9 +3,11 @@ let formContactos= document.getElementById('formAgregarContactos')
 
 let optionsContactos =["Seleccionar Canal","Telefono", "Twitter", "LinkedIn"]
 let opcionesPreferencia = ["Sin Preferencia","canal Favorito", "No Molestar"]
-
-
+let incremento= 0 ; 
+incremento ++;
+/*
 btnAgregar.addEventListener('click', ()=>{
+
    
     let divModal = document.createElement('div')
     let divContacto = document.createElement('div')
@@ -17,6 +19,10 @@ btnAgregar.addEventListener('click', ()=>{
     labelContacto.innerText= 'Canal de Contacto'
 
     let selectContacto =document.createElement('select')
+    divContacto.id = 'select'+incremento;
+    divCuenta.id = 'select'+incremento;
+    divPreferencia.id = 'select'+incremento;
+
 
     let labelCuenta =document.createElement('label')
     labelCuenta.innerText='Cuenta De Usuario'
@@ -67,12 +73,13 @@ btnAgregar.addEventListener('click', ()=>{
     divModal.appendChild(divContacto)
     divModal.appendChild(divCuenta)
     divModal.appendChild(divPreferencia)
-
+    
 
     formContactos.appendChild(divModal)
-    
     
     return false;
 
 })
+*/
+
 

@@ -23,7 +23,7 @@ const{
 
 
 //***************ruta post********* */
-/*
+
 router.post('/',validarContacto, (req, res) => {
 
     nuevo_contacto(req.body)
@@ -32,7 +32,42 @@ router.post('/',validarContacto, (req, res) => {
             mensaje: ' Contacto creado con exito'
         })).catch(err => console.log(err));
 })
-*/
+
+//*********ruta get************************* */
+
+async function obtenerTodosLosContactos() {
+    var queryString = '';
+    queryString = queryString + 'SELECT ct.id, concat(ct.nombre, \' \', ct.apellido) as fullname, ct.email, concat(rg.nombre,\' \', ps.nombre ) as pais_region, cp.nombre as compania, ct.cargo, ct.interes ';
+    queryString = queryString +' from contactos ct join companias cp on (ct.id_compania=cp.id) join regiones rg on (ct.id_region = rg.id) join paises ps on (ct.id_pais = ps.id) ';
+
+    let contactos = await sequelize.query(queryString,
+     { type: sequelize.QueryTypes.SELECT})
+    return contactos;
+ }
+
+router.get('/', async (req,res)=>{
+
+    let contactos = await obtenerTodosLosContactos();
+  
+    return res.status(200).json({contactos})
+})
+
+
+/*************************************fredy****************** */
+
+/*
+router.post('/', (req, res) => {
+    let{ bodyaEnviar}=req.params;
+    //let {canales_asociados}=req.params
+
+    let id_contacto = nuevo_contacto(bodyaEnviar);
+        guardar_canales(bodyaEnviar,id_contacto)
+        .then(proyects => res.status(200).send({
+            status: 200,
+            mensaje: ' Contacto creado con exito'
+        })).catch(err => console.log(err));
+})
+;
 
 async function guardar_canales(listado_canales, contactoId){
     let data = Object.values(listado_canales)
@@ -48,22 +83,7 @@ for (var i=0; i<data.length; i++) {
 
 
 }
-
-router.post('/', (req, res) => {
-    let{ bodyaEnviar}=req.params;
-    //let {canales_asociados}=req.params
-
-    let id_contacto = nuevo_contacto(bodyaEnviar);
-        guardar_canales(bodyaEnviar,id_contacto)
-        .then(proyects => res.status(200).send({
-            status: 200,
-            mensaje: ' Contacto creado con exito'
-        })).catch(err => console.log(err));
-})
-;
-
-
-
+*/
 
 //*********************ruta put*************************** */
 /*

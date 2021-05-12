@@ -161,6 +161,10 @@ body {
 
 }
 
+.seccionCanal{
+    display: block;
+}
+
 
 
 .cuentaUsuario{
@@ -372,4 +376,10 @@ table thead{
 
 .ciudadCrear{
     margin-left: 78px;
+}
+
+.btnEliminarContacto{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
 }
