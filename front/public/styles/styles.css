@@ -373,6 +373,7 @@ table thead {
 }
 
 .btnEliminarContacto {
+  display: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -380,5 +381,9 @@ table thead {
       -ms-flex-pack: justify;
           justify-content: space-between;
   text-align: center;
+}
+
+.selected {
+  background-color: #e6abab !important;
 }
 /*# sourceMappingURL=styles.css.map */

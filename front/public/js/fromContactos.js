@@ -73,8 +73,8 @@ const mostrar= (contactos)=>{
     console.log(contactos)
     contactos.contactos.forEach(contacto => {
         resultados += `
-        <tr>
-            <td class ="text-center"><input type="checkbox" class="checkitem" value=""/> </td>
+        <tr class="">
+            <td class ="text-center"><input type="checkbox" id ="check_${contacto.id}" class="checkitem" value=""/> </td>
             <td>${contacto.id}</td>
             <td>${contacto.fullname}</td>
             <td>${contacto.email}</td>
@@ -82,9 +82,6 @@ const mostrar= (contactos)=>{
             <td>${contacto.compania}</td>
             <td>${contacto.cargo}</td>
             <td>${contacto.interes}</td>
-          
-
-
             <td class="text-center"> <a class="edit" href="javascript:void(0)" title="Edit">
             <i class="fa fa-edit"></i>
            </td>

@@ -379,7 +379,13 @@ table thead{
 }
 
 .btnEliminarContacto{
+   
     display: flex;
     justify-content: space-between;
     text-align: center;
+}
+
+.selected{
+    background-color: rgb(230, 171, 171) !important
+    
 }

@@ -316,10 +316,14 @@
   </form>
 
   <div class="container_1 mt-4 shadow-lg p-3 mb-5 bg-body rounded " id="container_1">
-    <div class="btnEliminarContacto">
-    <p></p>
-    <button class="btn buscar"  title="Remove"><i class="fas fa-trash"> Eliminar Contactos</i></button>
-  </div>
+
+    <div class="divSeleccionar " id="itemSeleccionado">
+      <div class="btnEliminarContacto ">
+        <p class=" seleccionados  "></p>
+        <button class="btn buscar  displaynone " title="Remove"><i class="fas fa-trash"> Eliminar Contactos</i></button>
+      </div>
+    </div>
+
     <table id="tableContact" class="table mt-2 table-bordered table-striped">
       <thead>
         <tr class="text-center">
@@ -376,11 +380,12 @@
 
 
   <script>
+
     $(document).ready(function () {
       var table = $('#tableContact').DataTable({
         searching: false,
         lengthChange: false,
-       // ordering: false,
+        // ordering: false,
 
         columnDefs: [{
           orderable: false,
@@ -398,22 +403,60 @@
         ]
       });
 
+      //hacer click en todos los items
+
       $('#checkall').change(function () {
         $('.checkitem').prop("checked", $(this).prop("checked"))
-        var checked = $(".checkitem:checked").length;
+        let checked = $(".checkitem:checked").length;
         $("p").text(checked + " " + "Seleccionado(s)");
+        $("td").toggleClass('selected');
+        $('.divSeleccionar').toggleClass('displayblock')
+        $('.divSeleccionar').toggleClass('displaynone')
+
+       
 
       })
+
+      //hacer click en un solo item
+    
+
+      $('#tableContact tbody').on('click','tr', function () {
+        let arrayItem = []
+        let checked = $(".checkitem:checked").length;
+        $("p").text(checked + " " + "Seleccionado(s)");
+    
+        let selectedItem= $(this).toggleClass('selected').length;
+        let deselectedItem= $(this).toggleClass('deselect').length;
+
+
+       if(checked == selectedItem){
+
+        $('.buscar').toggleClass('displayblock').length 
+        
+         
+       }else if(checked == deselectedItem){
+        $('.buscar').toggleClass('displaynone').length 
+
+       }
+       
+      })
+      
+
     })
 
+
+                   
+                
+
+    //cuenta los items seleccionados
+/*
     $(document).click(function () {
         var checked = $(".checkitem:checked").length;
         $("p").text(checked + " " + "Seleccionado(s)");
       })
-      .trigger("click");
+      .trigger("click");*/
 
 
-      
   </script>
 
 
