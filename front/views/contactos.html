@@ -28,6 +28,11 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://use.fontawesome.com/096f51d3db.js"></script>
+  <!-- CSS tabla -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+  <!-- Default theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+
 
   <!--jstree-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
@@ -36,8 +41,8 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1d72c2;">
-    <a class="navbar-brand" href="#">logo</a>
+  <nav class="navbar navbar-expand-lg navbar-dark color_navbar" style="background-color: #214985;">
+    <a class="navbar-brand" href="#">SOFTWARE COMPANY</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -69,8 +74,9 @@
 
   <div class="bnAgregar ">
     <div>
-      <input class=" inputSearch" type="search" placeholder="Search" aria-label="Search"></input>
-      <button class="btn btn-outline-secondary  buscar" type=""><i class="fas fa-search"></i></button>
+      <input class=" inputSearch" id="my_input_search" type="search" placeholder="Search" aria-label="Search"></input>
+      <button class="btn btn-outline-secondary  buscar" id="buscar_Contactos" type=""><i
+          class="fas fa-search"></i></button>
     </div>
     <div>
       <button type="" class="btn btn-secondary " data-toggle="modal" data-target="#modal1">AgregarContactos</button>
@@ -215,9 +221,9 @@
                       <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
                       <select class="form-control colorInput" id="preferencias">
                         <option>Seleccionar Preferencias</option>
-                        <option value="1">Sin Preferencias</option>
-                        <option value="2">canal Favorito</option>
-                        <option value="3">No Molestar</option>
+                        <option value="">Sin Preferencias</option>
+                        <option value="">canal Favorito</option>
+                        <option value="">No Molestar</option>
                       </select>
                     </div>
 
@@ -226,13 +232,6 @@
 
                   </div>
 
-                  <!--
-                   <div class=" contact3 agregarMas " id="nuevoCanal">
-                    <button  class=" btn-group  form-control" id="agregarCanal">
-                    + Agregar Canal
-                   </button>
-                   </div>
-                    -->
 
                   <div class="modal3">
 
@@ -252,9 +251,9 @@
                       <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
                       <select class="form-control colorInput" id="preferencias2">
                         <option>Seleccionar Preferencias</option>
-                        <option value="1">Sin Preferencias</option>
-                        <option value="2">canal Favorito</option>
-                        <option value="3">No Molestar</option>
+                        <option value="">Sin Preferencias</option>
+                        <option value="">canal Favorito</option>
+                        <option value="">No Molestar</option>
                       </select>
                     </div>
 
@@ -279,9 +278,9 @@
                       <label for="colFormLabel" class="col-sm-12 col-form-label">Preferencias</label>
                       <select class="form-control colorInput" id="preferencias3">
                         <option>Seleccionar Preferencias</option>
-                        <option value="1">Sin Preferencias</option>
-                        <option value="2">canal Favorito</option>
-                        <option value="3">No Molestar</option>
+                        <option value="">Sin Preferencias</option>
+                        <option value="">canal Favorito</option>
+                        <option value="">No Molestar</option>
                       </select>
                     </div>
 
@@ -301,15 +300,21 @@
               <div>
                 <button class=" btn-group  form-control colorInput2" id="guardarContacto"> Guardar Contacto </button>
               </div>
+
+
+              <div>
+                <button class=" btn-group  form-control colorInput2 displaynone" id="editar_Contacto"> Editar Contacto
+                </button>
+              </div>
             </div>
-
-
 
           </div>
 
         </div>
 
       </div>
+
+    </div>
 
     </div>
 
@@ -320,32 +325,33 @@
     <div class="divSeleccionar " id="itemSeleccionado">
       <div class="btnEliminarContacto ">
         <p class=" seleccionados  "></p>
-        <button class="btn buscar  displaynone " title="Remove"><i class="fas fa-trash"> Eliminar Contactos</i></button>
+        <button class="btn buscar displaynone eliminar" id="eliminarContact" title="Remove"><i class="fas fa-trash">
+            Eliminar
+            Contactos</i></button>
       </div>
+
+
+      <table id="tableContact" class="table mt-2 table-bordered table-striped">
+        <thead>
+          <tr class="text-center">
+            <th><input type="checkbox" id="checkall"></th>
+            <th>id</th>
+            <th>CONTACTOS</th>
+            <th>EMAIL</th>
+            <th>PAÍS/REGIÓN</th>
+            <th>COMPAÑIA</th>
+            <th>CARGO</th>
+            <th>INTERES</th>
+            <th>ACCION</th>
+
+          </tr>
+        <tbody id="bodyContactos">
+        </tbody>
+        </thead>
+
+      </table>
     </div>
-
-    <table id="tableContact" class="table mt-2 table-bordered table-striped">
-      <thead>
-        <tr class="text-center">
-          <th><input type="checkbox" id="checkall"></th>
-          <th>id</th>
-          <th>CONTACTOS</th>
-          <th>EMAIL</th>
-          <th>PAÍS/REGIÓN</th>
-          <th>COMPAÑIA</th>
-          <th>CARGO</th>
-          <th>INTERES</th>
-          <th>ACCION</th>
-
-        </tr>
-      <tbody id="bodyContactos">
-      </tbody>
-      </thead>
-
-    </table>
   </div>
-
-
 
 
 
@@ -369,22 +375,23 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 
 
 
   <script src="/front/public/js/funciones.js"></script>
   <script src="/front/public/js/contactos.js"></script>
-  <script src="/front/public/js/formcontactos.js"></script>
   <script src="/front/public/js/fromContactos.js"></script>
+  <script src="/front/public/js/buscarContactos.js"></script>
 
 
   <script>
-
     $(document).ready(function () {
       var table = $('#tableContact').DataTable({
         searching: false,
         lengthChange: false,
+
         // ordering: false,
 
         columnDefs: [{
@@ -410,53 +417,74 @@
         let checked = $(".checkitem:checked").length;
         $("p").text(checked + " " + "Seleccionado(s)");
         $("td").toggleClass('selected');
-        $('.divSeleccionar').toggleClass('displayblock')
-        $('.divSeleccionar').toggleClass('displaynone')
-
-       
+        $('.buscar').toggleClass('displayblock').length
 
       })
 
       //hacer click en un solo item
-    
 
-      $('#tableContact tbody').on('click','tr', function () {
-        let arrayItem = []
+      $('#tableContact tbody').on('click', 'tr', function () {
+
         let checked = $(".checkitem:checked").length;
         $("p").text(checked + " " + "Seleccionado(s)");
-    
-        let selectedItem= $(this).toggleClass('selected').length;
-        let deselectedItem= $(this).toggleClass('deselect').length;
+
+        let selectedItem = $(this).toggleClass('selected').length;
+        let deselectedItem = $(this).toggleClass('deselect').length;
 
 
-       if(checked == selectedItem){
-
-        $('.buscar').toggleClass('displayblock').length 
-        
-         
-       }else if(checked == deselectedItem){
-        $('.buscar').toggleClass('displaynone').length 
-
-       }
-       
+        if (checked == selectedItem) {
+          $('.buscar').toggleClass('displayblock').length
+        } else if (checked == deselectedItem) {
+          $('.buscar').toggleClass('displaynone').length
+        }
       })
-      
+
+
+      //************* Delete record*************//
+      $('#eliminarContact').click(function () {
+
+        var delete_arr = [];
+        $(".checkitem:checked").each(function () {
+            let final = $(this).prop("id");
+            final = final.slice(6);
+            console.log(final);
+
+            delete_arr.push(final);
+
+          }),
+
+          console.log(delete_arr);
+        let listadoC = delete_arr.toString();
+
+        alertify.confirm("¿Desea Eliminar el registro?",
+          function () {
+            fetch("http://127.0.0.1:3000/api/delete/remove/" + listadoC, {
+
+                method: 'DELETE',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `BEARER ${localStorage.getItem('token')}`
+                }
+
+              }).then(res => res.json())
+              .then(() => location.reload())
+
+          },
+          function () {
+            alertify.error('cancel')
+          })
+
+      })
+
+      //***********buscar***************//
+      $('#my_input_search').on('keyup change', function () {
+          table.search($(this).val()).draw();
+
+        })
+
+  
 
     })
-
-
-                   
-                
-
-    //cuenta los items seleccionados
-/*
-    $(document).click(function () {
-        var checked = $(".checkitem:checked").length;
-        $("p").text(checked + " " + "Seleccionado(s)");
-      })
-      .trigger("click");*/
-
-
   </script>
 
 

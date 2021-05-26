@@ -46,6 +46,15 @@ router.use('/contactos', apiContactos);
 const apiCanales = require('./api/canales');
 router.use('/canales', apiCanales);
 
+//ruta para delete
+
+const apiDelete = require('./api/delete');
+router.use('/delete', apiDelete);
+
+//ruta para search
+
+const apiSearch = require('./api/Search');
+router.use('/search', apiSearch);
 
 
 

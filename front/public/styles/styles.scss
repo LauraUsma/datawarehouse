@@ -2,6 +2,19 @@ $font1: 'Open Sans',
 sans-serif;
 $font2: 'Open sans bold',
 sans-serif;
+$color1: #214985;
+$color2: white;
+$color3 : #bec5be;
+$color4:#495057;
+$color5:#ced4da;
+$color6: #1566b3;
+$color7:#C6CACC;
+$color8 :#1ed12d;
+$color9:#bb2929;
+$color10:#f66060;
+$color11:#c2f8bb;
+$color12:#119200;
+$color13:whitesmoke;
 
 
 
@@ -18,8 +31,8 @@ body {
 
 .cardheader,
 .btn {
-    background-color: #1d72c2;
-    color: white
+    background-color: $color1;
+    color: $color2
 }
 
 .displaynone {
@@ -51,16 +64,16 @@ body {
 }
 
 .buscar {
-    background-color: white;
-    color: #1d72c2
+    background-color: $color2;
+    color:$color1
 }
 
 .btn-outline-secondary {
-    border-color: #bec5be;
+    border-color: $color3;
 }
 
 .subirarchivo {
-    border-color: #1d72c2;
+    border-color: $color1;
 
 }
 
@@ -78,10 +91,10 @@ body {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
+    color: $color4;
+    background-color: $color2;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid $color5;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -89,9 +102,9 @@ body {
 .modal2{
   display: flex;
   flex-direction: column;
-  background-color: #1d72c2;
+  background-color: $color1;
   height: 140px;
-  color: white;
+  color: $color2;
 }
 
 
@@ -114,7 +127,7 @@ body {
 
 
 .contenedor{
-    border: 3px solid #0683f9;
+    border: 3px solid $color6;
     z-index: 1;
     position: relative;
     margin-top: -100px;
@@ -141,8 +154,6 @@ body {
 
 .form-Contact{
     display: flex;
-   
-
 }
 
 .contact1{
@@ -197,19 +208,19 @@ body {
 }
 
 .colorInput{
-    background-color:#C6CACC ;
+    background-color:$color7 ;
     
 }
 
 .colorInput2{
-    background-color:#C6CACC  ;
-    color: white;
+    background-color:$color7  ;
+    color: $color2;
 
 }
 
 .colorInput3{
-    background-color: white ;
-    color: #C6CACC;
+    background-color: $color2 ;
+    color: $color7;
 
 }
 
@@ -255,18 +266,17 @@ body {
 }
 
 .formulario__grupo-correcto .formulario__validacion-estado{
-    color:#1ed12d;
+    color:$color8;
     opacity:1;
 }
 
 .formulario__grupo-incorrecto .formulario__validacion-estado{
-    color: #bb2929;
+    color: $color9;
     opacity: 1;
-
 }
 
 .formulario__grupo-incorrecto .formulario__input{
-    border: 3px solid #bb2929;
+    border: 3px solid $color9;
     opacity: 1;
 
 }
@@ -274,7 +284,7 @@ body {
 .formulario__mensaje{
     height: 35px;
     line-height: 35px;
-    background: #f66060;
+    background: $color10;
     padding: 0 15px;
     border-radius: 3px;
     margin-bottom: 10px;
@@ -293,8 +303,8 @@ body {
 .formulario__mensaje-exito{
  text-align: center;
  font-size: 14px;
- background: #c2f8bb;
- color: #119200;
+ background: $color11;
+ color:$color12;
  height: 35px;
  line-height: 35px;
  padding: 0 15px;
@@ -303,6 +313,8 @@ margin-top: 10px;
 display: none;
 
 }
+
+
 
 .formulario__mensaje-exito-activo{
     display: block;
@@ -313,13 +325,13 @@ display: none;
 }
 
 .close{
-    color: whitesmoke;
+    color: $color13;
       
-   
 }
 
+
 .close:hover{
-    color: white;
+    color:$color2;
     text-decoration: none;
     opacity: .75;
 }
@@ -329,10 +341,10 @@ display: none;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
+    color: $color4;
+    background-color: $color2;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid $color5;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
@@ -354,8 +366,8 @@ display: none;
 }
 
 table thead{
-    background-color: #1d72c2;
-    color: white;
+    background-color: $color1;
+    color: $color2;
 }
 
 .regionLabel{
@@ -386,6 +398,6 @@ table thead{
 }
 
 .selected{
-    background-color: rgb(230, 171, 171) !important
+    background-color: rgb(179, 205, 230) !important
     
 }

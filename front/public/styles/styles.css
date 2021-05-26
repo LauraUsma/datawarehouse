@@ -11,7 +11,7 @@ body {
 
 .cardheader,
 .btn {
-  background-color: #1d72c2;
+  background-color: #214985;
   color: white;
 }
 
@@ -41,7 +41,7 @@ body {
 
 .buscar {
   background-color: white;
-  color: #1d72c2;
+  color: #214985;
 }
 
 .btn-outline-secondary {
@@ -49,7 +49,7 @@ body {
 }
 
 .subirarchivo {
-  border-color: #1d72c2;
+  border-color: #214985;
 }
 
 .bnAgregar {
@@ -68,7 +68,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color: white;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: .25rem;
@@ -86,7 +86,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #1d72c2;
+  background-color: #214985;
   height: 140px;
   color: white;
 }
@@ -115,7 +115,7 @@ body {
 }
 
 .contenedor {
-  border: 3px solid #0683f9;
+  border: 3px solid #1566b3;
   z-index: 1;
   position: relative;
   margin-top: -100px;
@@ -320,7 +320,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color: white;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: .25rem;
@@ -348,7 +348,7 @@ body {
 }
 
 table thead {
-  background-color: #1d72c2;
+  background-color: #214985;
   color: white;
 }
 
@@ -373,7 +373,6 @@ table thead {
 }
 
 .btnEliminarContacto {
-  display: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -384,6 +383,6 @@ table thead {
 }
 
 .selected {
-  background-color: #e6abab !important;
+  background-color: #b3cde6 !important;
 }
 /*# sourceMappingURL=styles.css.map */
