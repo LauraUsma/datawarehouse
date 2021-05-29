@@ -227,4 +227,3 @@ btnCambiar.addEventListener('click', ()=>{
 
 
 
- console.log('hola mundo')

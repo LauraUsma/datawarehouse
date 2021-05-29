@@ -345,11 +345,36 @@
             <th>ACCION</th>
 
           </tr>
-        <tbody id="bodyContactos">
+        <tbody id="bodyContactos" class="">
+        </tbody>
+        <tbody id="search_contactos" class="">
         </tbody>
         </thead>
 
       </table>
+
+        <!--
+        <table id="tableContactSearch" class="table mt-2 table-bordered table-striped displaynone">
+          <thead>
+            <tr class="text-center">
+              <th><input type="checkbox" id="checkall"></th>
+              <th>id</th>
+              <th>CONTACTOS</th>
+              <th>EMAIL</th>
+              <th>PAÍS/REGIÓN</th>
+              <th>COMPAÑIA</th>
+              <th>CARGO</th>
+              <th>INTERES</th>
+              <th>ACCION</th>
+  
+            </tr>
+          <tbody id="search_contactos">
+          </tbody>
+          </thead>
+  
+        </table>-->
+        
+    
     </div>
   </div>
 
@@ -391,8 +416,9 @@
       var table = $('#tableContact').DataTable({
         searching: false,
         lengthChange: false,
-
-        // ordering: false,
+        paging: false,
+        info: false,
+        ordering: false,
 
         columnDefs: [{
           orderable: false,
@@ -477,10 +503,7 @@
       })
 
       //***********buscar***************//
-      $('#my_input_search').on('keyup change', function () {
-          table.search($(this).val()).draw();
-
-        })
+ 
 
   
 

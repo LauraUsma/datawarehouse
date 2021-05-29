@@ -53,7 +53,7 @@ router.use('/delete', apiDelete);
 
 //ruta para search
 
-const apiSearch = require('./api/Search');
+const apiSearch = require('./api/search');
 router.use('/search', apiSearch);
 
 
