@@ -136,6 +136,7 @@ form1.addEventListener('submit', (e)=>{
             mostrar(nuevaRegion)
            
         })
+        
        
        // console.log('opcion crear')
     }

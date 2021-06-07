@@ -385,4 +385,8 @@ table thead {
 .selected {
   background-color: #b3cde6 !important;
 }
+
+.navItemUsuarios {
+  display: none;
+}
 /*# sourceMappingURL=styles.css.map */

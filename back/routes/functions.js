@@ -3,7 +3,7 @@ const expressJwt = require('express-jwt')
 const jwtClave= "p40y3c70cu47r0_Ac4m1c4";
 const sequelize = require('../database.js');
 
-
+let perfilId_general;
 
 
 //*********funciones **********/
@@ -22,6 +22,16 @@ const sequelize = require('../database.js');
 //funcion buscar 1 usuario
 
 async function consulta_usuario(usuarios){
+    let resultadoUsuario = await sequelize.query('SELECT * FROM usuarios WHERE email = ?',{
+        type: sequelize.QueryTypes.SELECT,
+        replacements:[usuarios]
+       
+    })
+    return resultadoUsuario
+}
+
+
+ async function consulta_usuario_ppal(usuarios){
     let resultadoUsuario = await sequelize.query('SELECT * FROM usuarios WHERE email = ?',{
         type: sequelize.QueryTypes.SELECT,
         replacements:[usuarios]
@@ -111,6 +121,8 @@ let usuarioExistente = (req, res, next) => {
         consulta_usuario(email)
         .then(proyects => {
             let usuarioNuevo = proyects.find(U => U.email == email)
+            //TODO: mirar si el perfil es = 1admin 
+
             if (usuarioNuevo) {
                 return next();
             } else if (!usuarioNuevo) {
@@ -147,6 +159,7 @@ let user_pass = (req, res, next) => {
     login(email, contraseña)
         .then(proyects => {
             let usuario = proyects.find(u => u.email == email && u.contraseña == contraseña)
+             perfilId_general = usuario.perfil_id;
             if (usuario) {
                 return next();
             } else if (!usuario) {
@@ -165,7 +178,7 @@ let verificar_role = (req, res, next) => {
     console.log('verificar role');
 
     let token = (req.headers.authorization).split(' ')[1];
-    
+
     let decodificado = jwt.verify(token, jwtClave)
 
     const usuario = decodificado.email;
@@ -173,6 +186,7 @@ let verificar_role = (req, res, next) => {
     consulta_usuario(usuario)
         .then(arrayUsuarios =>{
             let user = arrayUsuarios.find(Usuario => Usuario.email == usuario)
+
             if(user.perfil_id === 1){
                 next();
             } else {
@@ -468,7 +482,8 @@ module.exports = {
     validarCiudad,
     nuevo_contacto,
     validarContacto,
-    nuevo_canal
+    nuevo_canal,
+    consulta_usuario_ppal
     
 
 }

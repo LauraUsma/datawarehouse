@@ -42,15 +42,23 @@
         <li class="nav-item">
           <a class="nav-link" href="/front/views/companias.html">Compañias</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/front/views/usuar.html">Usuarios</a>
-        </li>
+
+        <div class=" navItemUsuarios" id="navItemUsuarios">
+          <li class="nav-item" id="">
+            <a class="nav-link" href="/front/views/usuar.html" id="tab_usuarios">Usuarios</a>
+          </li>
+        </div>
         <li class="nav-item">
           <a class="nav-link disabled" href="/front/views/regiones.html">Región/Ciudad</a>
         </li>
       </ul>
     </div>
+
+
+
   </nav>
+
+
 
 
   <section class="titleCompany">
@@ -70,7 +78,7 @@
           </div>
           <div class="card-body">
 
-            
+
 
             <form>
               <div class="form-group row">
@@ -143,7 +151,8 @@
 
   <script src="/front/public/js/funciones.js"></script>
 
-  <script  src="../public/js/companias.js"> </script>
+  <script src="../public/js/companias.js"> </script>
+  <script src="../public/js/nav.js"></script>
 
   <script type="text/javascript">
     var $table = $('#table-users')
@@ -152,7 +161,7 @@
 
     function operateFormatter(value, row, index) {
       return [
-      '<a class="edit" href="javascript:void(0)" title="Edit">',
+        '<a class="edit" href="javascript:void(0)" title="Edit">',
         '<i class="fa fa-edit"></i>',
         '</a> ',
         '<a class="remove" href="javascript:void(0)" title="Remove">',
@@ -163,16 +172,16 @@
 
     window.operateEvents = {
       'click .edit': function (e, value, row, index) {
-        document.getElementById('nombreCompania').value=row.nombre;
+        document.getElementById('nombreCompania').value = row.nombre;
         document.getElementById('nombreCompania').setAttribute('data-id', row.id);
-        document.getElementById('direCompania').value=row.direccion;
-        document.getElementById('emailCompania').value=row.email;
-        document.getElementById('telCompania').value=row.telefono;
-        document.getElementById('ciudadCompania').value=row.id_ciudades;
-          
-          
+        document.getElementById('direCompania').value = row.direccion;
+        document.getElementById('emailCompania').value = row.email;
+        document.getElementById('telCompania').value = row.telefono;
+        document.getElementById('ciudadCompania').value = row.id_ciudades;
+
+
       },
-      
+
 
       'click .remove': function (e, value, row, index) {
         if (window.confirm("¿Desea eliminar el registro?")) {
@@ -180,12 +189,11 @@
           $table.bootstrapTable('remove', {
             field: 'id',
             values: [row.id]
-          }
-          )
-          
+          })
+
           deleteCompanias(row.id);
 
-          const body={
+          const body = {
             id: row.id
           }
         }
@@ -195,7 +203,7 @@
     function initTable() {
       $table.bootstrapTable('destroy').bootstrapTable({
         url: 'http://127.0.0.1:3000/api/companias',
-       
+
         search: false,
         pagination: false,
         height: 550,
@@ -217,7 +225,7 @@
             field: 'email',
             title: 'email',
             align: 'center'
-          },  {
+          }, {
             field: 'telefono',
             title: 'Telefono',
             align: 'center'
@@ -225,7 +233,7 @@
             field: 'ciudad',
             title: 'Ciudad',
             align: 'center'
-          } , {
+          }, {
             field: 'operate',
             title: 'Acción',
             align: 'center',
